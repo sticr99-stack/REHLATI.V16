@@ -1,9 +1,11 @@
-/* رحلتي — بحث الطيران: Amadeus إن توفرت المفاتيح وإلا المحرك المحلي */
+/* رحلتي — بحث الطيران: Duffel ثم Amadeus إن توفرت المفاتيح وإلا المحرك المحلي
+   (بوابة Amadeus Self-Service أُغلقت في 17 يوليو 2026 — Duffel هو البديل الموصى به) */
 import { NextRequest } from 'next/server'
 import { ok, fail, clientIp } from '@/lib/server-utils'
 import { rateLimit } from '@/lib/ratelimit'
 import { searchFlights } from '@/lib/engine'
 import { amadeusEnabled, amadeusFlights } from '@/lib/amadeus'
+import { duffelEnabled, duffelFlights } from '@/lib/duffel'
 
 export const dynamic = 'force-dynamic'
 
@@ -25,10 +27,14 @@ export async function GET(req: NextRequest) {
   if (!DATE_RE.test(date)) return fail('invalid date (YYYY-MM-DD)', 400)
 
   const q = { from, to, date, pax, cls }
-  let provider: 'amadeus' | 'mock' = 'mock'
+  let provider: 'duffel' | 'amadeus' | 'mock' = 'mock'
   let offers = null
 
-  if (amadeusEnabled) {
+  if (duffelEnabled) {
+    offers = await duffelFlights(q)
+    if (offers) provider = 'duffel'
+  }
+  if (!offers && amadeusEnabled) {
     offers = await amadeusFlights(q)
     if (offers) provider = 'amadeus'
   }

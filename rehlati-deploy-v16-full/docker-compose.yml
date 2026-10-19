@@ -1,20 +1,41 @@
 # رحلتي — تشغيل إنتاجي بأمر واحد: docker compose up -d --build
+# قاعدة البيانات: حاوية Postgres مدمجة ببياناتها المحفوظة (لا يحتاج Neon على VPS)
 services:
   rehlati:
     build: .
     container_name: rehlati
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
     environment:
       # عدّل هذه القيم أو استخدم ملف .env
-      - DATABASE_URL=file:/app/db/custom.db
+      - DATABASE_URL=postgresql://rehlati:rehlati@postgres:5432/rehlati?sslmode=disable
       - JWT_SECRET=${JWT_SECRET:-change-me-in-production}
+      - DUFFEL_API_TOKEN=${DUFFEL_API_TOKEN:-}
       - AMADEUS_CLIENT_ID=${AMADEUS_CLIENT_ID:-}
       - AMADEUS_CLIENT_SECRET=${AMADEUS_CLIENT_SECRET:-}
-    volumes:
-      # قاعدة البيانات تبقى محفوظة حتى بعد إعادة البناء
-      - rehlati-db:/app/db
     ports:
       - "3000:3000"
+    # إنشاء/تحديث جداول القاعدة عند كل إقلاع (idempotent) ثم تشغيل السيرفر
+    command: sh -c "npx prisma db push --skip-generate && node server.js"
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: rehlati-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=rehlati
+      - POSTGRES_PASSWORD=rehlati
+      - POSTGRES_DB=rehlati
+    volumes:
+      # بيانات القاعدة تبقى محفوظة حتى بعد إعادة البناء
+      - rehlati-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rehlati -d rehlati"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
 
   # وكيل عكسي مع HTTPS تلقائي — عدّل النطاق ثم: docker compose up -d
   caddy:
@@ -32,6 +53,6 @@ services:
       - caddy-config:/config
 
 volumes:
-  rehlati-db:
+  rehlati-pgdata:
   caddy-data:
   caddy-config:

@@ -1,12 +1,13 @@
 // رحلتي — Rehlati Database Schema
-// SQLite (تطوير/صندوق رملي) — يمكن التبديل إلى postgres بتغيير provider + DATABASE_URL
+// Postgres — نفس القاعدة تعمل على Vercel (Neon) وعلى VPS (حاوية postgres في docker-compose)
+// ملاحظة: الروابط المحلية بصيغة file: (SQLite) لم تعد مدعومة في هذا المخطط
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 

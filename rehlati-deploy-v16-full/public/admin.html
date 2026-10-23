@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <script>/* [رحلتي sec] حماية من الحشر في إطار (Clickjacking) */ if (self !== top) { try { top.location = self.location; } catch (e) { document.documentElement.style.display = 'none'; } }</script>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="لوحة إدارة حجوزات رحلتي — واجهة خاصة بمالك الموقع" />
+  <title>رحلتي | لوحة الإدارة</title>
+
+  <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --navy:#123a6d; --navy2:#0d2c55; --blue:#2563eb; --blue-d:#1d4ed8;
+      --red:#c8102e; --rose:#f43f5e; --ink:#1e293b; --mut:#64748b;
+      --bg:#f1f5f9; --card:#ffffff; --line:#e2e8f0; --ok:#059669; --okbg:#d1fae5;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    [hidden]{display:none!important}
+    html{-webkit-text-size-adjust:100%}
+    body{font-family:Cairo,Inter,ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
+    button{font-family:inherit;cursor:pointer}
+    input,select{font-family:inherit}
+
+    /* ======= الترويسة ======= */
+    .top{background:linear-gradient(135deg,var(--navy2),var(--navy) 55%,#1e40af);color:#fff;padding:.9rem 1.2rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;position:relative;overflow:hidden}
+    .top::after{content:"";position:absolute;inset-inline-start:-40px;top:-80px;width:220px;height:220px;border-radius:50%;background:rgba(34,211,238,.18);filter:blur(40px)}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.15rem;z-index:1}
+    .brand i{color:#22d3ee}
+    .top .tag{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:.2rem .7rem;border-radius:999px;font-size:.78rem;font-weight:700;z-index:1}
+    .top .sp{flex:1}
+    .tbtn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;padding:.45rem .9rem;border-radius:.7rem;font-size:.85rem;font-weight:700;display:inline-flex;align-items:center;gap:.45rem;transition:.2s;z-index:1}
+    .tbtn:hover{background:rgba(255,255,255,.22)}
+
+    main{flex:1;width:100%;max-width:1150px;margin:0 auto;padding:1.3rem 1rem 3rem}
+
+    /* ======= الدخول ======= */
+    .gate{min-height:62vh;display:flex;align-items:center;justify-content:center}
+    .gate .card{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;box-shadow:0 18px 45px -18px rgba(18,58,109,.35);padding:2rem 1.7rem;width:min(400px,100%);text-align:center}
+    .gate .ic{width:64px;height:64px;border-radius:1.1rem;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem}
+    .gate h1{font-size:1.3rem;font-weight:800;margin-bottom:.3rem}
+    .gate p{color:var(--mut);font-size:.88rem;margin-bottom:1.2rem}
+    .gate input{width:100%;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:.8rem;font-size:1rem;text-align:center;letter-spacing:2px;outline:none;transition:.2s}
+    .gate input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.12)}
+    .gate .btn{width:100%;margin-top:.9rem;background:linear-gradient(135deg,var(--blue),var(--blue-d));color:#fff;border:none;padding:.85rem;border-radius:.8rem;font-size:1rem;font-weight:800;transition:.2s}
+    .gate .btn:hover{filter:brightness(1.08)}
+    .err{margin-top:.8rem;color:var(--rose);font-size:.85rem;font-weight:700;min-height:1.2em}
+    .hint{margin-top:1rem;color:#94a3b8;font-size:.75rem;line-height:1.7}
+
+    /* ======= الإحصائيات ======= */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;margin-bottom:1.2rem}
+    .stat{background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:1rem 1.1rem;display:flex;align-items:center;gap:.9rem;box-shadow:0 6px 18px -12px rgba(18,58,109,.25)}
+    .stat .b{width:46px;height:46px;border-radius:.9rem;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;flex:none}
+    .stat .v{font-size:1.35rem;font-weight:800;line-height:1.2}
+    .stat .l{color:var(--mut);font-size:.78rem;font-weight:600}
+
+    /* ======= الفلاتر ======= */
+    .filters{background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:.8rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+    .filters select,.filters input{padding:.55rem .8rem;border:1.5px solid var(--line);border-radius:.7rem;font-size:.88rem;background:#fff;outline:none}
+    .filters select:focus,.filters input:focus{border-color:var(--blue)}
+    .filters .q{flex:1;min-width:180px}
+    .chips{display:flex;gap:.45rem;flex-wrap:wrap}
+    .chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:.3rem .8rem;font-size:.78rem;font-weight:700;color:var(--mut);transition:.2s}
+    .chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+
+    /* ======= الجدول ======= */
+    .tblwrap{background:var(--card);border:1px solid var(--line);border-radius:1rem;overflow:hidden}
+    .scroll{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:760px}
+    thead th{background:#f8fafc;color:var(--mut);font-size:.72rem;font-weight:800;text-align:right;padding:.7rem .8rem;border-bottom:1px solid var(--line);white-space:nowrap}
+    tbody td{padding:.7rem .8rem;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+    tbody tr:hover{background:#f8fafc}
+    tbody tr:last-child td{border-bottom:none}
+    .ref{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;color:var(--navy);direction:ltr;display:inline-block}
+    .tbadge{display:inline-flex;align-items:center;gap:.35rem;padding:.2rem .6rem;border-radius:999px;font-size:.72rem;font-weight:800}
+    .t-flight{background:#dbeafe;color:#1d4ed8}
+    .t-hotel{background:#fef3c7;color:#92400e}
+    .t-package{background:#ede9fe;color:#5b21b6}
+    .sbadge{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .6rem;border-radius:999px;font-size:.72rem;font-weight:800}
+    .s-confirmed{background:var(--okbg);color:var(--ok)}
+    .s-cancelled{background:#ffe4e6;color:#be123c}
+    .amount{font-weight:800;white-space:nowrap}
+    .dt{color:var(--mut);white-space:nowrap;font-size:.78rem}
+    .dlink{color:var(--blue);background:none;border:none;font-size:.8rem;font-weight:700;text-decoration:underline}
+    .empty{padding:2.5rem 1rem;text-align:center;color:var(--mut)}
+    .empty i{font-size:2rem;color:#cbd5e1;margin-bottom:.6rem;display:block}
+
+    .pager{display:flex;align-items:center;justify-content:space-between;padding:.75rem .9rem;border-top:1px solid var(--line);flex-wrap:wrap;gap:.6rem}
+    .pager .info{color:var(--mut);font-size:.8rem;font-weight:600}
+    .pager .nav{display:flex;gap:.5rem}
+    .pbtn{border:1.5px solid var(--line);background:#fff;border-radius:.6rem;padding:.4rem .8rem;font-size:.82rem;font-weight:700;color:var(--ink)}
+    .pbtn:disabled{opacity:.45;cursor:not-allowed}
+    .pbtn:not(:disabled):hover{border-color:var(--blue);color:var(--blue)}
+
+    /* ======= النافذة ======= */
+    .ov{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:1rem;z-index:50}
+    .ov.show{display:flex}
+    .modal{background:#fff;border-radius:1.2rem;width:min(560px,100%);max-height:85vh;overflow:auto;padding:1.3rem}
+    .modal h3{font-size:1.05rem;font-weight:800;margin-bottom:.2rem;display:flex;align-items:center;gap:.5rem}
+    .modal .sub{color:var(--mut);font-size:.8rem;margin-bottom:1rem;direction:ltr;text-align:right;font-family:ui-monospace,monospace}
+    .kv{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1rem}
+    .kv .row{background:#f8fafc;border:1px solid var(--line);border-radius:.6rem;padding:.5rem .7rem}
+    .kv .k{color:var(--mut);font-size:.7rem;font-weight:700;margin-bottom:.15rem}
+    .kv .v{font-size:.85rem;font-weight:700;word-break:break-word}
+    pre.json{background:#0f172a;color:#e2e8f0;border-radius:.8rem;padding:.9rem;font-size:.72rem;line-height:1.6;overflow:auto;direction:ltr;text-align:left;font-family:ui-monospace,monospace;max-height:280px}
+    .modal .close{margin-top:1rem;width:100%;background:var(--navy);color:#fff;border:none;padding:.7rem;border-radius:.7rem;font-weight:800}
+
+    .toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:.6rem 1.2rem;border-radius:999px;font-size:.85rem;font-weight:700;opacity:0;pointer-events:none;transition:.3s;z-index:60}
+    .toast.show{opacity:1}
+    @media(max-width:560px){ .kv{grid-template-columns:1fr} .top{padding:.8rem .9rem} .brand{font-size:1rem} }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="brand"><i class="fa-solid fa-plane-departure"></i> رحلتي <span class="tag">لوحة الإدارة</span></div>
+    <div class="sp"></div>
+    <button id="refreshBtn" class="tbtn" hidden><i class="fa-solid fa-rotate"></i> تحديث</button>
+    <button id="logoutBtn" class="tbtn" hidden><i class="fa-solid fa-right-from-bracket"></i> خروج</button>
+  </header>
+
+  <main>
+    <!-- شاشة الدخول -->
+    <section id="loginView" class="gate">
+      <div class="card">
+        <div class="ic"><i class="fa-solid fa-lock"></i></div>
+        <h1>لوحة متابعة الحجوزات</h1>
+        <p>هذه الصفحة خاصة بمالك الموقع — أدخل كلمة السر للمتابعة</p>
+        <input id="pass" type="password" inputmode="text" autocomplete="current-password" placeholder="كلمة السر" />
+        <button id="loginBtn" class="btn"><i class="fa-solid fa-unlock"></i> دخول</button>
+        <div id="loginErr" class="err"></div>
+        <div class="hint">كلمة السر تُضبط في Vercel ضمن المتغير <b>ADMIN_PASSCODE</b><br>تسجيلات الدخول محدودة بـ 8 محاولات في الدقيقة</div>
+      </div>
+    </section>
+
+    <!-- اللوحة -->
+    <section id="dashView" hidden>
+      <div class="stats">
+        <div class="stat"><div class="b" style="background:linear-gradient(135deg,#123a6d,#2563eb)"><i class="fa-solid fa-ticket"></i></div><div><div class="v" id="stTotal">—</div><div class="l">إجمالي الحجوزات (المصفّاة)</div></div></div>
+        <div class="stat"><div class="b" style="background:linear-gradient(135deg,#059669,#10b981)"><i class="fa-solid fa-circle-check"></i></div><div><div class="v" id="stConf">—</div><div class="l">حجوزات مؤكدة</div></div></div>
+        <div class="stat"><div class="b" style="background:linear-gradient(135deg,#c8102e,#f43f5e)"><i class="fa-solid fa-sack-dollar"></i></div><div><div class="v" id="stRev">—</div><div class="l">الإيراد المؤكد (MAD)</div></div></div>
+        <div class="stat"><div class="b" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)"><i class="fa-solid fa-calendar-day"></i></div><div><div class="v" id="stToday">—</div><div class="l">حجوزات اليوم</div></div></div>
+      </div>
+
+      <div class="filters">
+        <div class="chips" id="typeChips">
+          <button class="chip on" data-t="">الكل</button>
+          <button class="chip" data-t="flight"><i class="fa-solid fa-plane"></i> طيران <span id="cFlight"></span></button>
+          <button class="chip" data-t="hotel"><i class="fa-solid fa-hotel"></i> فنادق <span id="cHotel"></span></button>
+          <button class="chip" data-t="package"><i class="fa-solid fa-suitcase-rolling"></i> باقات <span id="cPackage"></span></button>
+        </div>
+        <select id="statusSel">
+          <option value="">كل الحالات</option>
+          <option value="confirmed">مؤكد</option>
+          <option value="cancelled">ملغى</option>
+        </select>
+        <input id="q" class="q" type="search" placeholder="بحث بالبريد أو المرجع (FLT-XXXX) أو العنوان…" />
+      </div>
+
+      <div class="tblwrap">
+        <div class="scroll">
+          <table>
+            <thead><tr>
+              <th>المرجع</th><th>النوع</th><th>العنوان</th><th>البريد</th><th>المبلغ</th><th>الحالة</th><th>التاريخ</th><th></th>
+            </tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <div class="empty" id="empty" hidden><i class="fa-solid fa-inbox"></i><div id="emptyTxt">لا توجد حجوزات مطابقة بعد</div></div>
+        <div class="pager">
+          <div class="info" id="pgInfo"></div>
+          <div class="nav">
+            <button class="pbtn" id="prevBtn"><i class="fa-solid fa-chevron-right"></i> السابق</button>
+            <button class="pbtn" id="nextBtn">التالي <i class="fa-solid fa-chevron-left"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- نافذة التفاصيل -->
+  <div class="ov" id="ov">
+    <div class="modal">
+      <h3 id="mTitle"></h3>
+      <div class="sub" id="mRef"></div>
+      <div class="kv" id="mKv"></div>
+      <div class="k" style="color:var(--mut);font-size:.72rem;font-weight:700;margin-bottom:.35rem">تفاصيل الحجز الكاملة (JSON)</div>
+      <pre class="json" id="mJson"></pre>
+      <button class="close" id="mClose"><i class="fa-solid fa-xmark"></i> إغلاق</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+  'use strict';
+  var S = { type: '', status: '', q: '', page: 1, limit: 20, pages: 1 };
+  var $ = function (id) { return document.getElementById(id); };
+  var TYPE_AR = { flight: 'طيران', hotel: 'فندق', package: 'باقة' };
+  var TYPE_IC = { flight: 'fa-plane', hotel: 'fa-hotel', package: 'fa-suitcase-rolling' };
+  var dtFmt = new Intl.DateTimeFormat('ar-MA', { dateStyle: 'medium', timeStyle: 'short' });
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function toast(msg) {
+    var t = $('toast'); t.textContent = msg; t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 2200);
+  }
+  function money(v, cur) {
+    var n = Number(v || 0);
+    return n.toLocaleString('ar-MA', { maximumFractionDigits: 2 }) + ' ' + (cur || 'MAD');
+  }
+
+  /* ---------- الدخول ---------- */
+  function showLogin() {
+    $('loginView').hidden = false; $('dashView').hidden = true;
+    $('refreshBtn').hidden = true; $('logoutBtn').hidden = true;
+    $('pass').value = ''; $('loginErr').textContent = '';
+  }
+  function showDash() {
+    $('loginView').hidden = true; $('dashView').hidden = false;
+    $('refreshBtn').hidden = false; $('logoutBtn').hidden = false;
+  }
+  function doLogin() {
+    var pass = $('pass').value;
+    if (!pass) { $('loginErr').textContent = 'أدخل كلمة السر أولاً'; return; }
+    $('loginBtn').disabled = true; $('loginErr').textContent = '';
+    fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ passcode: pass })
+    }).then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); })
+      .then(function (x) {
+        $('loginBtn').disabled = false;
+        if (x.j && x.j.ok) { showDash(); load(); return; }
+        var msg = (x.j && x.j.error) === 'wrong passcode' ? 'كلمة السر غير صحيحة' : (x.j && x.j.error) || 'فشل الدخول';
+        if (x.s === 429) msg = 'محاولات كثيرة — انتظر قليلاً ثم أعد المحاولة';
+        if (x.s === 403) msg = 'البوابة معطلة: أضف ADMIN_PASSCODE في Vercel ثم أعد النشر';
+        $('loginErr').textContent = msg;
+      })
+      .catch(function () { $('loginBtn').disabled = false; $('loginErr').textContent = 'تعذر الاتصال بالسيرفر'; });
+  }
+
+  /* ---------- البيانات ---------- */
+  function load() {
+    var qs = new URLSearchParams();
+    if (S.type) qs.set('type', S.type);
+    if (S.status) qs.set('status', S.status);
+    if (S.q) qs.set('q', S.q);
+    qs.set('page', String(S.page)); qs.set('limit', String(S.limit));
+    $('rows').innerHTML = '<tr><td colspan="8" style="text-align:center;color:#94a3b8;padding:1.4rem">جارٍ التحميل…</td></tr>';
+    $('empty').hidden = true;
+    fetch('/api/admin/bookings?' + qs.toString())
+      .then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); })
+      .then(function (x) {
+        if (x.s === 401) { showLogin(); return; }
+        if (x.s === 403) { $('emptyTxt').textContent = 'البوابة معطلة — أضف ADMIN_PASSCODE في Vercel'; $('empty').hidden = false; $('rows').innerHTML = ''; return; }
+        if (!x.j || !x.j.ok) { toast('خطأ في جلب البيانات'); $('rows').innerHTML = ''; $('empty').hidden = false; return; }
+        render(x.j);
+      })
+      .catch(function () { toast('تعذر الاتصال بالسيرفر'); });
+  }
+
+  function render(d) {
+    var st = d.stats || {};
+    $('stTotal').textContent = (st.filtered || 0).toLocaleString('ar-MA');
+    $('stConf').textContent = (st.byStatus && st.byStatus.confirmed || 0).toLocaleString('ar-MA');
+    $('stRev').textContent = money(st.revenueConfirmedMad, '');
+    $('stToday').textContent = (st.today || 0).toLocaleString('ar-MA');
+    $('cFlight').textContent = st.byType && st.byType.flight ? '(' + st.byType.flight + ')' : '';
+    $('cHotel').textContent = st.byType && st.byType.hotel ? '(' + st.byType.hotel + ')' : '';
+    $('cPackage').textContent = st.byType && st.byType.package ? '(' + st.byType.package + ')' : '';
+    S.pages = st.pages || 1;
+
+    var rows = d.bookings || [];
+    var tb = $('rows');
+    tb.innerHTML = rows.map(function (b) {
+      var cancelled = b.status === 'cancelled';
+      return '<tr>' +
+        '<td><span class="ref">' + esc(b.ref) + '</span></td>' +
+        '<td><span class="tbadge t-' + esc(b.type) + '"><i class="fa-solid ' + (TYPE_IC[b.type] || 'fa-box') + '"></i> ' + (TYPE_AR[b.type] || esc(b.type)) + '</span></td>' +
+        '<td style="max-width:220px">' + esc(b.title || '—') + (b.visa ? ' <span class="tbadge" style="background:#fce7f3;color:#9d174d">تأشيرة</span>' : '') + '</td>' +
+        '<td style="direction:ltr;text-align:right">' + esc(b.email) + '</td>' +
+        '<td><span class="amount">' + money(b.totalMad, b.cur) + '</span></td>' +
+        '<td><span class="sbadge s-' + esc(b.status) + '"><i class="fa-solid ' + (cancelled ? 'fa-ban' : 'fa-check') + '"></i> ' + (cancelled ? 'ملغى' : 'مؤكد') + '</span></td>' +
+        '<td class="dt">' + dtFmt.format(new Date(b.createdAt)) + '</td>' +
+        '<td><button class="dlink" data-ref="' + esc(b.ref) + '">تفاصيل</button></td>' +
+        '</tr>';
+    }).join('');
+    $('empty').hidden = rows.length > 0;
+    $('pgInfo').textContent = 'صفحة ' + S.page + ' من ' + S.pages + ' — ' + (st.filtered || 0) + ' حجز';
+    $('prevBtn').disabled = S.page <= 1;
+    $('nextBtn').disabled = S.page >= S.pages;
+
+    Array.prototype.forEach.call(document.querySelectorAll('.dlink'), function (el) {
+      el.addEventListener('click', function () { openDetails(el.getAttribute('data-ref'), rows); });
+    });
+  }
+
+  function findBooking(ref, rows) {
+    for (var i = 0; i < rows.length; i++) if (rows[i].ref === ref) return rows[i];
+    return null;
+  }
+  function openDetails(ref, rows) {
+    var b = findBooking(ref, rows); if (!b) return;
+    $('mTitle').innerHTML = '<i class="fa-solid ' + (TYPE_IC[b.type] || 'fa-box') + '"></i> ' + (TYPE_AR[b.type] || esc(b.type)) + ' — ' + esc(b.title || 'بدون عنوان');
+    $('mRef').textContent = b.ref;
+    var kv = [
+      ['البريد', b.email], ['المبلغ', money(b.totalMad, b.cur)],
+      ['الحالة', b.status === 'cancelled' ? 'ملغى' : 'مؤكد'], ['اللغة', b.lang === 'en' ? 'EN' : 'AR'],
+      ['تأشيرة', b.visa ? 'نعم' : 'لا'], ['مسجل بحساب', b.registered ? 'نعم' : 'لا'],
+      ['أُنشئ في', dtFmt.format(new Date(b.createdAt))], ['الجهاز مرتبط', '—']
+    ];
+    $('mKv').innerHTML = kv.map(function (p) {
+      return '<div class="row"><div class="k">' + p[0] + '</div><div class="v">' + esc(p[1]) + '</div></div>';
+    }).join('');
+    var payload = b.payload;
+    var pretty;
+    try { pretty = JSON.stringify(payload, null, 2); } catch (e) { pretty = String(payload); }
+    $('mJson').textContent = (pretty || '{}').slice(0, 4000);
+    $('ov').classList.add('show');
+  }
+
+  /* ---------- الأحداث ---------- */
+  $('loginBtn').addEventListener('click', doLogin);
+  $('pass').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
+  $('mClose').addEventListener('click', function () { $('ov').classList.remove('show'); });
+  $('ov').addEventListener('click', function (e) { if (e.target === $('ov')) $('ov').classList.remove('show'); });
+  $('refreshBtn').addEventListener('click', function () { load(); toast('تم التحديث'); });
+  $('logoutBtn').addEventListener('click', function () {
+    fetch('/api/admin/login', { method: 'DELETE' }).finally(function () { showLogin(); });
+  });
+  $('statusSel').addEventListener('change', function () { S.status = this.value; S.page = 1; load(); });
+  $('prevBtn').addEventListener('click', function () { if (S.page > 1) { S.page--; load(); } });
+  $('nextBtn').addEventListener('click', function () { if (S.page < S.pages) { S.page++; load(); } });
+  var deb;
+  $('q').addEventListener('input', function () {
+    var v = this.value;
+    clearTimeout(deb);
+    deb = setTimeout(function () { S.q = v.trim(); S.page = 1; load(); }, 350);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('#typeChips .chip'), function (el) {
+    el.addEventListener('click', function () {
+      Array.prototype.forEach.call(document.querySelectorAll('#typeChips .chip'), function (c) { c.classList.remove('on'); });
+      el.classList.add('on');
+      S.type = el.getAttribute('data-t'); S.page = 1; load();
+    });
+  });
+
+  /* ---------- الإقلاع: جرّب الجلسة الحالية ---------- */
+  (function boot() {
+    fetch('/api/admin/bookings?page=1&limit=5')
+      .then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); })
+      .then(function (x) {
+        if (x.j && x.j.ok) { showDash(); load(); }
+        else if (x.s === 403) { showLogin(); $('loginErr').textContent = 'البوابة معطلة: أضف ADMIN_PASSCODE في Vercel ثم أعد النشر'; }
+        else showLogin();
+      })
+      .catch(showLogin);
+  })();
+  </script>
+</body>
+</html>

@@ -17,7 +17,7 @@ export async function GET() {
   return NextResponse.json({
     ok: true,
     service: 'rehlati-api',
-    version: '1.2.0',
+    version: '1.3.0',
     db: dbOk ? 'up' : 'down',
     flightProvider,
     time: new Date().toISOString(),

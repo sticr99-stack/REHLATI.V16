@@ -1,5 +1,5 @@
 /* رحلتي — الحجوزات:
-   POST  /api/bookings        إنشاء حجز (مع تحقق zod + حد طلب)
+   POST  /api/bookings        إنشاء حجز (مع تحقق zod + حد طلب + تأكيد بالبريد v1.4)
    GET   /api/bookings?email=&device=   قائمة حجوزات (يتطلب device مطابق أو توكن صالح) */
 
 import { NextRequest } from 'next/server'
@@ -8,6 +8,7 @@ import { db } from '@/lib/db'
 import { ok, fail, clientIp, readJson, firstZodError, cleanText, mkRef } from '@/lib/server-utils'
 import { rateLimit } from '@/lib/ratelimit'
 import { verifyToken, bearerOf } from '@/lib/auth'
+import { sendBookingConfirmation } from '@/lib/email'
 
 export const dynamic = 'force-dynamic'
 
@@ -61,6 +62,26 @@ export async function POST(req: NextRequest) {
         payload: JSON.stringify(b.payload).slice(0, 20_000),
       },
     })
+
+    /* [v1.4] تأكيد بالبريد الإلكتروني — fire-and-forget:
+       فشل البريد أو غياب المفتاح لا يؤثر على الحجز أبداً */
+    try {
+      sendBookingConfirmation({
+        ref: row.ref,
+        type: b.type,
+        email: row.email,
+        title: row.title,
+        totalMad: row.totalMad,
+        cur: row.cur,
+        lang: b.lang === 'en' ? 'en' : 'ar',
+        visa: row.visa,
+        createdAt: row.createdAt,
+        payload: b.payload,
+      })
+    } catch {
+      /* البريد اختياري دائماً */
+    }
+
     return ok({ booking: shape(row) }, 201)
   } catch (e) {
     const msg = e instanceof Error && e.message.includes('Unique') ? 'ref already exists' : 'db error'

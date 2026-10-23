@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { amadeusEnabled } from '@/lib/amadeus'
 import { duffelEnabled } from '@/lib/duffel'
+import { emailEnabled } from '@/lib/email'
 
 export const dynamic = 'force-dynamic'
 
@@ -17,9 +18,10 @@ export async function GET() {
   return NextResponse.json({
     ok: true,
     service: 'rehlati-api',
-    version: '1.3.0',
+    version: '1.4.0',
     db: dbOk ? 'up' : 'down',
     flightProvider,
+    email: emailEnabled() ? 'resend' : 'off',
     time: new Date().toISOString(),
   })
 }

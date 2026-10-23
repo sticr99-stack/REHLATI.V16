@@ -4,7 +4,7 @@
 
 **منصّة حجز الطيران والفنادق والباقات — بالعربية أولاً، وثنائية اللغة بالكامل**
 
-`v1.4.0` · Next.js 16 · TypeScript · Prisma · PostgreSQL (Neon) · Duffel · Resend · Vercel
+`v1.5.0` · Next.js 16 · TypeScript · Prisma · PostgreSQL (Neon) · Duffel · Resend · Vercel
 
 ---
 
@@ -99,7 +99,9 @@ npm run dev               # http://localhost:3000
 | v15.1-sec | تدقيق اختراق: إصلاح 4 ثغرات XSS + CSP + SRI + حصانات |
 | v16 | سيرفر Next.js + API + Prisma + Duffel — ولادة الوضع الحي |
 | v1.2 | الترحيل إلى Neon Postgres — حجوزات دائمة على السحابة |
+| v1.3 | لوحة إدارة آمنة للحجوزات + SEO |
 | **v1.4** | **تأكيدات الحجز بالبريد الإلكتروني (Resend) + هذه الوثيقة** |
+| **v1.5** | **بريد الحجز يتبع ما يكتبه المستخدم + البحث يتبع المطار المختار فعلاً + هاتف الفندق في مستند التأشيرة** |
 
 <div dir="rtl" align="center">
 

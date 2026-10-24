@@ -1775,7 +1775,7 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
       if (bad.length) { toast(t('errRequired')); bad[0].focus(); return; }
 
       const booking = {
-        ref: mkRef('PKG'), type: 'package', id: PKG.id, title: PKG[LANG], city: destDisp(),
+        ref: mkRef('PKG'), type: 'package', email: $('#gEmail').value.trim(), id: PKG.id, title: PKG[LANG], city: destDisp(),
         d1: S.d1, d2: S.d2, px: S.px, totalMad: PKG.priceMad * S.px, cur: CUR, lang: LANG, visa: VISA, ts: Date.now()
       };
       try { booking.doc = visaData(booking); } catch (e) { /* لقطة المستند اختيارية (v15.1) */ }

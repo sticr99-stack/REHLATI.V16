@@ -1890,7 +1890,7 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
       const base = FLIGHT.price * n;
       const totalMad = base + Math.round(base * 0.12);
       const booking = {
-        ref: mkRef('FLT'), type: 'flight', fl: FLIGHT.id, no: FLIGHT.no, airline: (AIRLINES[FLIGHT.al] || {})[LANG] || FLIGHT.al,
+        ref: mkRef('FLT'), type: 'flight', email: $('#cEmail').value.trim(), fl: FLIGHT.id, no: FLIGHT.no, airline: (AIRLINES[FLIGHT.al] || {})[LANG] || FLIGHT.al,
         from: fromDisp(), to: toDisp(), d1: S.d1, d2: S.d2, pax: n, cls: S.cls, totalMad, cur: CUR, lang: LANG, visa: VISA, ts: Date.now()
       };
       try { booking.doc = visaData(booking); } catch (e) { /* لقطة المستند اختيارية (v15.1) */ }

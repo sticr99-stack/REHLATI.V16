@@ -827,6 +827,10 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
               <input id="gEmail" class="field-input" type="email" data-i18n-ph="phEmail" placeholder="name@example.com" autocomplete="email" dir="ltr" />
             </div>
             <div class="field">
+              <label class="field-label" for="gTel"><i class="fa-solid fa-hotel text-brand-500"></i> <span data-i18n="fHotelTel">هاتف الفندق (يظهر في المستند)</span></label>
+              <input id="gTel" class="field-input" type="tel" data-i18n-ph="phHotelTel" placeholder="+971 4 000 0000" autocomplete="off" dir="ltr" />
+            </div>
+            <div class="field">
               <label class="field-label" for="gPhone"><i class="fa-solid fa-phone text-brand-500"></i> <span data-i18n="fPhone">رقم الهاتف</span></label>
               <input id="gPhone" class="field-input" type="tel" data-i18n-ph="phPhone" placeholder="+212 6 00 00 00 00" autocomplete="tel" dir="ltr" />
             </div>
@@ -1120,6 +1124,7 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
         demoNote: 'نسخة تجريبية — لن يتم أي دفع في هذه المرحلة',
         formTitle: 'بيانات النزيل',
         fName: 'الاسم الكامل', fEmail: 'البريد الإلكتروني', fPhone: 'رقم الهاتف', fRequests: 'طلبات خاصة (اختياري)',
+        fHotelTel: 'هاتف الفندق (يظهر في المستند)', phHotelTel: 'مثال: +971 4 000 0000',
         phName: 'مثال: أحمد العلوي', phEmail: 'name@example.com', phPhone: '+212 6 00 00 00 00', phRequests: 'مثال: طابق مرتفع، سرير إضافي…',
         btnConfirm: 'تأكيد الحجز', errRequired: 'يرجى إكمال الحقول المطلوبة',
         visaOpt: 'حجز لأغراض التأشيرة', visaOptHint: 'أصدر مستند PDF للحجز يصلح للإرفاق في ملف طلب التأشيرة — بدون دفع.',
@@ -1155,6 +1160,7 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
         demoNote: 'Demo prototype — no payment will be taken at this stage',
         formTitle: 'Guest details',
         fName: 'Full name', fEmail: 'Email address', fPhone: 'Phone number', fRequests: 'Special requests (optional)',
+        fHotelTel: 'Hotel phone (shown in document)', phHotelTel: 'e.g. +971 4 000 0000',
         phName: 'e.g. Ahmed Alawi', phEmail: 'name@example.com', phPhone: '+212 6 00 00 00 00', phRequests: 'e.g. high floor, extra bed…',
         btnConfirm: 'Confirm booking', errRequired: 'Please complete the required fields',
         visaOpt: 'Visa-purpose reservation', visaOptHint: 'Issue a PDF reservation document suitable for a visa application file — no payment.',
@@ -1426,7 +1432,7 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
         cls: 'Classe', baggage: 'Bagages', duration: 'Durée', stops: 'Correspondance',
         direct: 'Vol direct', via: 'Via', times: 'Horaires',
         pax: 'Passagers', contact: 'Contact',
-        hotelLbl: 'Hôtel', cityLbl: 'Ville', checkin: 'Check-in', checkout: 'Check-out',
+        hotelLbl: 'Hôtel', hotelNo: "N° d'hôtel", hotelTel: "Tél de l'hôtel", cityLbl: 'Ville', checkin: 'Check-in', checkout: 'Check-out',
         nights: 'Nuit(s)', room: 'Chambre', guests: 'Occupants', roomsCount: 'Chambres',
         pkg: 'Forfait', pkgHotel: 'Hôtel inclus', travellers: 'Voyageurs',
         guest: 'Client', passport: 'N° passeport',
@@ -1452,7 +1458,7 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
         cls: 'Class', baggage: 'Baggage', duration: 'Duration', stops: 'Stops',
         direct: 'Direct flight', via: 'Via', times: 'Times',
         pax: 'Passengers', contact: 'Contact',
-        hotelLbl: 'Hotel', cityLbl: 'City', checkin: 'Check-in', checkout: 'Check-out',
+        hotelLbl: 'Hotel', hotelNo: 'Hotel No.', hotelTel: 'Hotel phone', cityLbl: 'City', checkin: 'Check-in', checkout: 'Check-out',
         nights: 'Night(s)', room: 'Room', guests: 'Guests', roomsCount: 'Rooms',
         pkg: 'Package', pkgHotel: 'Included hotel', travellers: 'Travellers',
         guest: 'Guest', passport: 'Passport No.',
@@ -1479,6 +1485,8 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
       const room = ROOMS[b.room] ? ROOMS[b.room].en : b.room;
       const rows = [
         [X.hotelLbl, h.name.en || h.name.ar],
+        [X.hotelNo, 'RH-' + String(b.hid || h.id || '').toUpperCase()], /* [v1.5+] رقم الفندق في المستند */
+        ...(String(b.tel || '').trim() ? [[X.hotelTel, String(b.tel).trim()]] : []),
         [X.cityLbl, VISA_CITY[code] || visaLatin(destDisp())],
         [X.checkin, visaDate(b.ci)],
         [X.checkout, visaDate(b.co)],
@@ -1854,7 +1862,7 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
       const nightly = Math.round(hotel.price * ROOMS[selRoom].mult);
       const totalMad = nightly * n * S.rm + CITY_TAX * n * S.rm;
       const booking = {
-        ref: mkRef('HTL'), type: 'hotel', hid: hotel.id, hotel: hotel.name[LANG], city: destDisp(),
+        ref: mkRef('HTL'), type: 'hotel', email: $('#gEmail').value.trim(), tel: ($('#gTel') ? $('#gTel').value.trim() : ''), hid: hotel.id, hotel: hotel.name[LANG], city: destDisp(),
         ci: S.ci, co: S.co, ni: n, rm: S.rm, room: selRoom, totalMad, cur: CUR, lang: LANG, visa: VISA, ts: Date.now()
       };
       try { booking.doc = visaData(booking); } catch (e) { /* لقطة المستند اختيارية (v15.1) */ }

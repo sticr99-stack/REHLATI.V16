@@ -29,14 +29,20 @@
     input[type="date"] { -webkit-appearance: none; appearance: none; }
     input[type="date"]::-webkit-calendar-picker-indicator { opacity: .55; cursor: pointer; }
 
-    /* أنيميشن فتح القوائم المنسدلة */
+    /* أنيميشن فتح القوائم المنسدلة
+       [v1.5+] fill-mode: backwards بدل both — بعد انتهاء الحركة يُزال التحويل العالق
+       فلا يبقى سياق تكديس يحبس النافذة المنبثقة تحت باقي العناصر */
     @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    .anim-pop { animation: pop .18s ease-out both; }
+    .anim-pop { animation: pop .18s ease-out backwards; }
 
     /* أنيميشن ظهور البطاقات */
     @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-    .anim-rise { animation: rise .45s ease-out both; }
-    .anim-rise-late { animation: rise .45s .12s ease-out both; }
+    .anim-rise { animation: rise .45s ease-out backwards; }
+    .anim-rise-late { animation: rise .45s .12s ease-out backwards; }
+
+    /* [v1.5+] أثناء انفتاح لوحة العدّاد تُرفع بطاقة الملخص فوق بقية الصفحة */
+    .anim-rise:has(#rsPaxPanel:not(.hidden)),
+    .anim-rise:has(#rsGuestsPanel:not(.hidden)) { z-index: 40; }
 
     /* دوران أيقونة زر التبديل من/إلى */
     #rsSwapBtn.spin i { transform: rotate(180deg); }
@@ -203,7 +209,7 @@
                   </button>
 
                   <!-- لوحة المسافرين -->
-                  <div id="rsPaxPanel" class="anim-pop absolute top-full start-0 z-40 mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
+                  <div id="rsPaxPanel" class="anim-pop absolute top-full start-0 z-[70] mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
                     <div class="flex items-center justify-between py-2">
                       <div>
                         <p class="text-sm font-bold text-slate-800" data-i18n="adults">بالغون</p>
@@ -291,7 +297,7 @@
                   </button>
 
                   <!-- لوحة الغرف والنزلاء -->
-                  <div id="rsGuestsPanel" class="anim-pop absolute top-full start-0 z-40 mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
+                  <div id="rsGuestsPanel" class="anim-pop absolute top-full start-0 z-[70] mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
                     <div class="flex items-center justify-between py-2">
                       <div>
                         <p class="text-sm font-bold text-slate-800" data-i18n="rooms">الغرف</p>
@@ -1421,6 +1427,24 @@
       S.arrCode = codeOf(S.toDisp);
       S.d1 = $('#rsDep').value || S.d1;
       if (S.trip === 'round') S.d2 = $('#rsRet').value || S.d2;
+      /* [v1.5] حدّث مفاتيح المطارات ثم أعد البحث الحقيقي عبر الـ API بالمطارات الجديدة */
+      S.fk = (codeOf(S.fromDisp) || S.fk).toLowerCase();
+      S.tk = (codeOf(S.toDisp) || S.tk).toLowerCase();
+      (function () {
+        function __w(cb, n) { if (window.RehlatiAPI) cb(window.RehlatiAPI); else if (n > 0) setTimeout(function () { __w(cb, n - 1); }, 60); }
+        __w(function (api) {
+          api.ready.then(function (s) {
+            if (!s.available) return;
+            api.searchFlights({ from: (S.fk || 'cmn').toUpperCase(), to: (S.tk || 'dxb').toUpperCase(), date: S.d1, pax: (S.fAdults || 2) + (S.fChildren || 0), cls: S.fCls })
+              .then(function (r) {
+                if (!r || !r.ok || !Array.isArray(r.offers) || !r.offers.length) return;
+                FLIGHTS.splice.apply(FLIGHTS, [0, FLIGHTS.length].concat(r.offers));
+                renderAirlines(); renderHead(); renderSortBox(); renderPriceBuckets(); renderList(); renderSummary();
+                toast(t('apiServerResults'));
+              }).catch(function () {});
+          }).catch(function () {});
+        }, 100);
+      })();
       console.log('Flight search →', {
         trip: S.trip, from: S.fromDisp, to: S.toDisp, d1: S.d1, d2: S.d2,
         pax: { adults: S.fAdults, children: S.fChildren, infants: S.fInfants, cls: S.fCls }
@@ -1461,8 +1485,10 @@
       if (Q.get('trip') === 'one' || Q.get('trip') === 'round') S.trip = Q.get('trip');
       if (Q.get('fk')) S.fk = Q.get('fk');
       if (Q.get('tk')) S.tk = Q.get('tk');
-      S.fromDisp = I18N[LANG]['f_' + S.fk] ? t('f_' + S.fk) : (Q.get('f') || t('f_cmn'));
-      S.toDisp = I18N[LANG]['f_' + S.tk] ? t('f_' + S.tk) : (Q.get('to') || t('f_dxb'));
+      /* [v1.5+] النص الذي كتبه المستخدم له الأولوية — المفتاح المعروف للعرض فقط
+         إصلاح: نص حر بلا رمز (مثل «باريس») كان يظهر الدار البيضاء */
+      S.fromDisp = Q.get('f') || (I18N[LANG]['f_' + S.fk] ? t('f_' + S.fk) : t('f_cmn'));
+      S.toDisp = Q.get('to') || (I18N[LANG]['f_' + S.tk] ? t('f_' + S.tk) : t('f_dxb'));
       S.depCode = codeOf(S.fromDisp);
       S.arrCode = codeOf(S.toDisp);
       S.d1 = DATE_RE.test(Q.get('d1') || '') ? Q.get('d1') : fmtDate(addDays(today, 10));
@@ -1476,7 +1502,7 @@
 
       /* فنادق */
       if (Q.get('dk')) S.dk = Q.get('dk');
-      S.destDisp = I18N[LANG]['h_' + S.dk] ? t('h_' + S.dk) : (Q.get('dest') || t('h_dxb'));
+      S.destDisp = Q.get('dest') || (I18N[LANG]['h_' + S.dk] ? t('h_' + S.dk) : t('h_dxb'));
       S.ci = DATE_RE.test(Q.get('ci') || '') ? Q.get('ci') : fmtDate(addDays(today, 10));
       S.co = DATE_RE.test(Q.get('co') || '') ? Q.get('co') : fmtDate(addDays(today, 14));
       if (parseDate(S.co) < parseDate(S.ci)) S.co = fmtDate(addDays(parseDate(S.ci), 1));
@@ -1511,7 +1537,10 @@
         } else if (S.type === 'bundle') {
           p = api.searchPackages({ pax: S.px || 2, nights: 5 });
         } else {
-          p = api.searchFlights({ from: Q.get('fk') || 'CMN', to: Q.get('tk') || 'DXB', date: S.d1, pax: (S.fAdults || 2) + (S.fChildren || 0), cls: S.fCls });
+          /* [v1.5+] رمز المطار يُستخرج من النص المعروض أولاً ثم من المفتاح */
+          var __fc = (String(S.depCode || '').toUpperCase() || String(Q.get('fk') || '').toUpperCase() || 'CMN');
+          var __tc = (String(S.arrCode || '').toUpperCase() || String(Q.get('tk') || '').toUpperCase() || 'DXB');
+          p = api.searchFlights({ from: __fc, to: __tc, date: S.d1, pax: (S.fAdults || 2) + (S.fChildren || 0), cls: S.fCls });
         }
         p.then(function (r) {
           if (!r || !r.ok || !Array.isArray(r.offers) || !r.offers.length) return;

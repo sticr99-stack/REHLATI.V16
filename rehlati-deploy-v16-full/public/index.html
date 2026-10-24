@@ -42,14 +42,21 @@
     input[type="date"] { -webkit-appearance: none; appearance: none; }
     input[type="date"]::-webkit-calendar-picker-indicator { opacity: .55; cursor: pointer; }
 
-    /* أنيميشن فتح القوائم المنسدلة */
+    /* أنيميشن فتح القوائم المنسدلة
+       [v1.5+] fill-mode: backwards بدل both — بعد انتهاء الحركة يُزال التحويل العالق
+       فلا يبقى سياق تكديس يحبس النافذة المنبثقة تحت باقي العناصر */
     @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    .anim-pop { animation: pop .18s ease-out both; }
+    .anim-pop { animation: pop .18s ease-out backwards; }
 
     /* أنيميشن ظهور العناصر عند التحميل */
     @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-    .anim-rise { animation: rise .55s ease-out both; }
-    .anim-rise-late { animation: rise .55s .15s ease-out both; }
+    .anim-rise { animation: rise .55s ease-out backwards; }
+    .anim-rise-late { animation: rise .55s .15s ease-out backwards; }
+
+    /* [v1.5+] أثناء انفتاح أي لوحة عدّاد تُرفع بطاقة البحث فوق كل الأقسام */
+    #search:has(#paxPanel:not(.hidden)),
+    #search:has(#guestsPanel:not(.hidden)),
+    #search:has(#pkgPaxPanel:not(.hidden)) { position: relative; z-index: 40; }
 
     /* دوران أيقونة زر التبديل من/إلى */
     #swapBtn i { transition: transform .3s ease; }
@@ -182,11 +189,11 @@
           <div class="relative grid min-w-0 grid-cols-1 gap-2.5 md:col-span-2 md:grid-cols-2 xl:col-span-2">
             <div class="field">
               <label for="fromInput" class="field-label"><i class="fa-solid fa-plane-departure text-brand-500"></i> <span data-i18n="from">من</span></label>
-              <input id="fromInput" class="field-input pe-8" type="text" list="airportsList" placeholder="مدينة أو مطار" value="الدار البيضاء (CMN)" data-i18n-ph="phAirport" data-citykey="cmn" data-citytype="flight" />
+              <input id="fromInput" class="field-input pe-8" type="text" list="airportsList" placeholder="مدينة أو مطار" data-i18n-ph="phAirport" data-citykey="" data-citytype="flight" />
             </div>
             <div class="field">
               <label for="toInput" class="field-label"><i class="fa-solid fa-plane-arrival text-brand-500"></i> <span data-i18n="to">إلى</span></label>
-              <input id="toInput" class="field-input ps-8" type="text" list="airportsList" placeholder="مدينة أو مطار" value="دبي (DXB)" data-i18n-ph="phAirport" data-citykey="dxb" data-citytype="flight" />
+              <input id="toInput" class="field-input ps-8" type="text" list="airportsList" placeholder="مدينة أو مطار" data-i18n-ph="phAirport" data-citykey="" data-citytype="flight" />
             </div>
             <button type="button" id="swapBtn" aria-label="تبديل وجهتَي المغادرة والوصول"
               class="absolute left-1/2 top-1/2 z-10 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-white bg-brand-600 text-white shadow-lg transition hover:bg-brand-700">
@@ -217,7 +224,7 @@
             </button>
 
             <!-- لوحة المسافرين المنسدلة -->
-            <div id="paxPanel" class="anim-pop absolute top-full start-0 z-40 mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
+            <div id="paxPanel" class="anim-pop absolute top-full start-0 z-[70] mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
               <div class="flex items-center justify-between py-2">
                 <div>
                   <p class="text-sm font-bold text-slate-800" data-i18n="adults">بالغون</p>
@@ -290,7 +297,7 @@
           <!-- الوجهة -->
           <div class="field md:col-span-2 xl:col-span-1">
             <label for="hotelDest" class="field-label"><i class="fa-solid fa-location-dot text-brand-500"></i> <span data-i18n="dest">الوجهة / اسم الفندق</span></label>
-            <input id="hotelDest" class="field-input" type="text" list="citiesList" placeholder="مدينة أو منطقة أو فندق" value="مراكش، المغرب" data-i18n-ph="phDest" data-citykey="mrak" data-citytype="hotel" />
+            <input id="hotelDest" class="field-input" type="text" list="citiesList" placeholder="مدينة أو منطقة أو فندق" data-i18n-ph="phDest" data-citykey="" data-citytype="hotel" />
           </div>
 
           <!-- تاريخ الوصول -->
@@ -316,7 +323,7 @@
             </button>
 
             <!-- لوحة الغرف والنزلاء -->
-            <div id="guestsPanel" class="anim-pop absolute top-full start-0 z-40 mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
+            <div id="guestsPanel" class="anim-pop absolute top-full start-0 z-[70] mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
               <div class="flex items-center justify-between py-2">
                 <div>
                   <p class="text-sm font-bold text-slate-800" data-i18n="rooms">الغرف</p>
@@ -377,13 +384,13 @@
           <!-- من -->
           <div class="field">
             <label for="pkgFrom" class="field-label"><i class="fa-solid fa-plane-departure text-brand-500"></i> <span data-i18n="from">من</span></label>
-            <input id="pkgFrom" class="field-input" type="text" list="airportsList" placeholder="مدينة أو مطار" value="الدار البيضاء (CMN)" data-i18n-ph="phAirport" data-citykey="cmn" data-citytype="flight" />
+            <input id="pkgFrom" class="field-input" type="text" list="airportsList" placeholder="مدينة أو مطار" data-i18n-ph="phAirport" data-citykey="" data-citytype="flight" />
           </div>
 
           <!-- الوجهة -->
           <div class="field">
             <label for="pkgDest" class="field-label"><i class="fa-solid fa-location-dot text-brand-500"></i> <span data-i18n="dest">الوجهة / اسم الفندق</span></label>
-            <input id="pkgDest" class="field-input" type="text" list="citiesList" placeholder="مدينة أو منطقة أو فندق" value="دبي، الإمارات" data-i18n-ph="phDest" data-citykey="dxb" data-citytype="hotel" />
+            <input id="pkgDest" class="field-input" type="text" list="citiesList" placeholder="مدينة أو منطقة أو فندق" data-i18n-ph="phDest" data-citykey="" data-citytype="hotel" />
           </div>
 
           <!-- تاريخ المغادرة -->
@@ -409,7 +416,7 @@
             </button>
 
             <!-- لوحة المسافرين (باقة) -->
-            <div id="pkgPaxPanel" class="anim-pop absolute top-full start-0 z-40 mt-2 hidden w-[18rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
+            <div id="pkgPaxPanel" class="anim-pop absolute top-full start-0 z-[70] mt-2 hidden w-[18rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
               <div class="flex items-center justify-between py-2">
                 <div>
                   <p class="text-sm font-bold text-slate-800" data-i18n="pkgTravellers">المسافرون</p>
@@ -819,6 +826,7 @@
         btnSearchHotels: 'ابحث عن الفنادق', trending: 'الأكثر بحثاً:',
         tabBundle: 'طيران + فندق', btnSearchPackages: 'ابحث عن الباقات', pkgTravellers: 'المسافرون', pkgPaxHint: '1 – 9 مسافرين',
         msgSearchReady: 'تم تجهيز بحثك — جارٍ فتح صفحة النتائج…', msgDemo: 'تم تجهيز البحث — المدن المتعددة قادمة قريباً في النموذج الأولي',
+        errAirport: 'اختر مطار المغادرة ومطار الوصول أولاً', errCity: 'اختر الوجهة أولاً',
         city_cmn: 'الدار البيضاء', city_dxb: 'دبي', city_jed: 'جدة', city_cai: 'القاهرة', city_ist: 'إسطنبول', city_cdg: 'باريس',
         city_mrak: 'مراكش', city_mad: 'مدريد', city_fco: 'روما', city_bcn: 'برشلونة', city_ber: 'برلين', city_ams: 'أمستردام',
         f_cmn: 'الدار البيضاء (CMN)', f_rba: 'الرباط (RBA)', f_rak: 'مراكش (RAK)', f_tng: 'طنجة (TNG)', f_jed: 'جدة (JED)', f_ruh: 'الرياض (RUH)', f_dxb: 'دبي (DXB)', f_doh: 'الدوحة (DOH)', f_cai: 'القاهرة (CAI)', f_ist: 'إسطنبول (IST)', f_cdg: 'باريس (CDG)', f_lhr: 'لندن (LHR)',
@@ -873,6 +881,7 @@
         btnSearchHotels: 'Search hotels', trending: 'Trending:',
         tabBundle: 'Flight + Hotel', btnSearchPackages: 'Search packages', pkgTravellers: 'Travellers', pkgPaxHint: '1–9 travellers',
         msgSearchReady: 'Search ready — opening results…', msgDemo: 'Search ready — multi-city is coming soon in the prototype',
+        errAirport: 'Please choose departure and arrival airports first', errCity: 'Please choose a destination first',
         city_cmn: 'Casablanca', city_dxb: 'Dubai', city_jed: 'Jeddah', city_cai: 'Cairo', city_ist: 'Istanbul', city_cdg: 'Paris',
         city_mrak: 'Marrakesh', city_mad: 'Madrid', city_fco: 'Rome', city_bcn: 'Barcelona', city_ber: 'Berlin', city_ams: 'Amsterdam',
         f_cmn: 'Casablanca (CMN)', f_rba: 'Rabat (RBA)', f_rak: 'Marrakesh (RAK)', f_tng: 'Tangier (TNG)', f_jed: 'Jeddah (JED)', f_ruh: 'Riyadh (RUH)', f_dxb: 'Dubai (DXB)', f_doh: 'Doha (DOH)', f_cai: 'Cairo (CAI)', f_ist: 'Istanbul (IST)', f_cdg: 'Paris (CDG)', f_lhr: 'London (LHR)',
@@ -1140,6 +1149,8 @@
     $('#swapBtn').addEventListener('click', () => {
       const f = $('#fromInput'), t2 = $('#toInput');
       [f.value, t2.value] = [t2.value, f.value];
+      /* [v1.5] بدّل مفاتيح المدن أيضاً حتى لا يبقى البحث عالقاً على القديم */
+      const kk = f.dataset.citykey; f.dataset.citykey = t2.dataset.citykey; t2.dataset.citykey = kk;
       $('#swapBtn').classList.toggle('spin');
     });
 
@@ -1229,10 +1240,13 @@
       const key = ch.dataset.citykey;
       if (!$('#flightForm').classList.contains('hidden')) {
         $('#toInput').value = t('f_' + key);
+        $('#toInput').dataset.citykey = key;
       } else if (!$('#hotelForm').classList.contains('hidden')) {
         $('#hotelDest').value = t('h_' + key);
+        $('#hotelDest').dataset.citykey = key;
       } else {
         $('#pkgDest').value = t('h_' + key);
+        $('#pkgDest').dataset.citykey = key;
       }
       toast(t('msgDestSet'));
     }));
@@ -1401,8 +1415,21 @@
     }
 
     /* ---------- معالجة الإرسال (نقطة الربط مع الـ API — نفس عقد صفحة النتائج) ---------- */
+    /* [v1.5] استخراج رمز المطار IATA من قيمة الحقل نفسها — «مراكش (RAK)» → rak
+       بحيث يتبع البحث الحقيقي (Duffel) ما اختاره المستخدم فعلاً لا مفتاحاً قديماً */
+    function iataOf(el) {
+      const m = (el.value || '').match(/\(([A-Za-z]{3})\)\s*$/);
+      if (m) { const k = m[1].toLowerCase(); el.dataset.citykey = k; return k; }
+      return el.dataset.citykey || '';
+    }
     $('#flightForm').addEventListener('submit', e => {
       e.preventDefault();
+      /* [v1.5] لا بحث بمطارات فارغة */
+      if (!$('#fromInput').value.trim() || !$('#toInput').value.trim()) {
+        toast(t('errAirport'));
+        (!$('#fromInput').value.trim() ? $('#fromInput') : $('#toInput')).focus();
+        return;
+      }
       const legs = tripType === 'multi'
         ? $$('#multiRows .mc-row').map(r => ({
             from: r.querySelectorAll('input[type=text]')[0].value,
@@ -1419,8 +1446,8 @@
         /* الانتقال لصفحة النتائج مع معايير البحث (في الإنتاج: /flights/search؟...ويمسكها الـ API) */
         const qs = new URLSearchParams({
           type: 'flights', lang: LANG, cur: CUR, trip: tripType,
-          fk: $('#fromInput').dataset.citykey || '',
-          tk: $('#toInput').dataset.citykey || '',
+          fk: iataOf($('#fromInput')),
+          tk: iataOf($('#toInput')),
           f: $('#fromInput').value, to: $('#toInput').value,
           d1: dep.value, d2: tripType === 'round' ? ret.value : '',
           ad: flightState.adults, ch: flightState.children,
@@ -1433,6 +1460,8 @@
 
     $('#hotelForm').addEventListener('submit', e => {
       e.preventDefault();
+      /* [v1.5] لا بحث بوجهة فارغة */
+      if (!$('#hotelDest').value.trim()) { toast(t('errCity')); $('#hotelDest').focus(); return; }
       const payload = {
         type: 'hotels',
         destination: $('#hotelDest').value,
@@ -1456,6 +1485,8 @@
 
     $('#packageForm').addEventListener('submit', e => {
       e.preventDefault();
+      /* [v1.5] لا بحث بحقول فارغة */
+      if (!$('#pkgFrom').value.trim() || !$('#pkgDest').value.trim()) { toast(t('errAirport')); $('#pkgFrom').focus(); return; }
       const payload = {
         type: 'bundle',
         from: $('#pkgFrom').value,
@@ -1467,7 +1498,7 @@
       const go = () => {
         const qs = new URLSearchParams({
           type: 'bundle', lang: LANG, cur: CUR,
-          fk: $('#pkgFrom').dataset.citykey || '',
+          fk: iataOf($('#pkgFrom')),
           dk: $('#pkgDest').dataset.citykey || '',
           dest: $('#pkgDest').value,
           d1: pkgDep.value, d2: pkgRet.value,

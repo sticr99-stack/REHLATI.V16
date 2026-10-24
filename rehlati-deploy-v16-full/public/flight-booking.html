@@ -1271,11 +1271,19 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
       $('#curSelect').value = CUR;
       $('#langSelect').value = LANG;
 
-      /* الرحلة: id أو فهرس — وإلا الرحلة الأولى */
+      /* الرحلة: [v1.6] الرحلة الحقيقية المختارة من النتائج (Duffel) أولاً ثم id أو فهرس — وإلا الرحلة الأولى */
+      let __selF = null;
+      try { __selF = JSON.parse(sessionStorage.getItem('rehlati_sel_flight') || 'null'); } catch (e) { __selF = null; }
       const fl = Q.get('fl');
-      FLIGHT = FLIGHTS.find(f => f.id === fl)
-        || (/^\d+$/.test(fl || '') && FLIGHTS[+fl]) 
-        || FLIGHTS[0];
+      FLIGHT = (__selF && __selF.id === fl && typeof __selF.price === 'number')
+        ? __selF
+        : FLIGHTS.find(f => f.id === fl)
+          || (/^\d+$/.test(fl || '') && FLIGHTS[+fl]) 
+          || FLIGHTS[0];
+      /* [v1.6] شركة غير معروفة مُرّر اسمها من النتائج → أضفها للقاموس حتى يظهر اسمها لا الرمز فقط */
+      if (FLIGHT && FLIGHT.al && !AIRLINES[FLIGHT.al] && (FLIGHT._alAr || FLIGHT._alEn)) {
+        AIRLINES[FLIGHT.al] = { ar: FLIGHT._alAr || FLIGHT.al, en: FLIGHT._alEn || FLIGHT.al, c: 'bg-brand-700' };
+      }
       if (Q.get('trip') === 'one' || Q.get('trip') === 'round') S.trip = Q.get('trip');
       if (Q.get('fk')) S.fk = Q.get('fk').toLowerCase();
       if (Q.get('tk')) S.tk = Q.get('tk').toLowerCase();

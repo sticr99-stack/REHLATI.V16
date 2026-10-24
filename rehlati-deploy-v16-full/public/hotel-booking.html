@@ -1274,8 +1274,13 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
       $('#curSelect').value = CUR;
       $('#langSelect').value = LANG;
 
-      /* الفندق: id من نتائج البحث (atl..ibi) — وإلا الفندق الأول */
-      hotel = HOTELS.find(h => h.id === Q.get('id')) || HOTELS[0];
+      /* الفندق: [v1.6] الفندق الفعلي المختار من النتائج (محرك السيرفر) أولاً — ثم id — وإلا الفندق الأول */
+      let __selH = null;
+      try { __selH = JSON.parse(sessionStorage.getItem('rehlati_sel_hotel') || 'null'); } catch (e) { __selH = null; }
+      const __hid = Q.get('id');
+      hotel = (__selH && __selH.id === __hid && typeof __selH.price === 'number' && __selH.name)
+        ? __selH
+        : HOTELS.find(h => h.id === __hid) || HOTELS[0];
       S.dk = (Q.get('dk') || 'dxb').toLowerCase();
       S.destRaw = Q.get('dest') || '';
       S.ci = DATE_RE.test(Q.get('ci') || '') ? Q.get('ci') : fmtDate(addDays(today, 10));

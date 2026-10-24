@@ -897,7 +897,9 @@
 
     /* ---------- قوالب البطاقات ---------- */
     function flightCard(f, cheapId, fastId) {
-      const A = AIRLINES[f.al];
+      /* [v1.6] شركة من Duffel غير موجودة في القاموس (BA/IB/…) → بديل آمن بدل انهيار الرسم */
+      const A = AIRLINES[f.al] || { ar: f.al, en: f.al, c: 'bg-slate-600' };
+      const viaName = f.via ? ((VIA[f.via] && VIA[f.via][LANG]) || f.via) : '';
       const badges = [];
       if (f.id === cheapId) badges.push(['bg-amber-100 text-amber-700', t('bgCheapest')]);
       if (f.id === fastId)  badges.push(['bg-cyan-100 text-cyan-700', t('bgFastest')]);
@@ -907,7 +909,7 @@
       const arrCode = S.arrCode ? `<p class="text-[11px] font-bold text-slate-400">${S.arrCode}${arrPlus}</p>` : (f.plus ? `<p class="text-[11px] font-bold text-slate-400">+1</p>` : '');
       const stopLine = f.stops === 0
         ? `<span class="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-extrabold text-emerald-600">${t('direct')}</span>`
-        : `<span class="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-extrabold text-amber-600">${t('oneStop')} ${t('viaIn')} ${VIA[f.via][LANG]} (${f.via})</span>
+        : `<span class="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-extrabold text-amber-600">${t('oneStop')} ${t('viaIn')} ${viaName} (${f.via})</span>
            <span class="text-[10px] font-bold text-slate-400">${t('layover')} ${fmtDur(f.lay)}</span>`;
       return `
       <article class="anim-rise group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-brand-300 hover:shadow-card sm:p-5" style="animation-delay:${f.ix * 40}ms">
@@ -1076,12 +1078,19 @@
     }
 
     function renderAirlines() {
-      $('#alsBox').innerHTML = Object.keys(AIRLINES).map(code => `
+      /* [v1.6] اتحاد القاموس الثابت مع شركات النتائج الفعلية (Duffel يعيد BA/IB/…) */
+      const codes = Array.from(new Set(Object.keys(AIRLINES).concat(
+        (S.type === 'flights' ? FLIGHTS : []).map(f => f.al).filter(Boolean)
+      )));
+      $('#alsBox').innerHTML = codes.map(code => {
+        const A = AIRLINES[code] || { ar: code, en: code, c: 'bg-slate-600' };
+        return `
         <label class="flt-row">
           <input type="checkbox" class="flt-check" data-f="als" data-v="${code}" ${FLT.als[code] ? 'checked' : ''}>
-          <span class="al-badge ${AIRLINES[code].c} ${AIRLINES[code].tc || 'text-white'} !h-7 !w-7 !text-[9px]">${code}</span>
-          <span class="truncate">${AIRLINES[code][LANG]}</span>
-        </label>`).join('');
+          <span class="al-badge ${A.c} ${A.tc || 'text-white'} !h-7 !w-7 !text-[9px]">${code}</span>
+          <span class="truncate">${A[LANG]}</span>
+        </label>`;
+      }).join('');
     }
 
     /* ---------- شرائح نطاقات الأسعار (تتبع العملة المختارة) ---------- */
@@ -1384,6 +1393,13 @@
       if (cho) {
         const f = FLIGHTS.find(x => x.id === cho.dataset.cho);
         if (!f) { toast(t('tSelect')); return; }
+        /* [v1.6] تمرير الرحلة الحقيقية (Duffel) لصفحة الحجز عبر sessionStorage */
+        try {
+          const A0 = AIRLINES[f.al];
+          sessionStorage.setItem('rehlati_sel_flight', JSON.stringify(Object.assign({}, f, {
+            _alAr: (A0 && A0.ar) || f.al, _alEn: (A0 && A0.en) || f.al
+          })));
+        } catch (err) {}
         const q = new URLSearchParams({
           lang: LANG, cur: CUR, fl: f.id, trip: S.trip, fk: S.fk, tk: S.tk,
           f: S.fromDisp, to: S.toDisp, d1: S.d1, d2: S.d2 || '',
@@ -1397,6 +1413,17 @@
       if (book) {
         const h = HOTELS.find(x => x.id === book.dataset.book);
         if (!h) { toast(t('tBook')); return; }
+        /* [v1.6] تمرير الفندق الفعلي (محرك السيرفر) لصفحة الحجز —
+           سعر عروض السيرفر إجمالي (ليالٍ×غرف) → طُبّعه لسعر الليلة كما تتوقع صفحة الحجز */
+        try {
+          let hOut = h;
+          if (/^h\d+-\d+$/.test(String(h.id || ''))) {
+            const __ni = Math.max(1, Math.round((parseDate(S.co) - parseDate(S.ci)) / 864e5));
+            const __pn = Math.max(50, Math.round(h.price / (__ni * Math.max(1, S.hRooms || 1))));
+            hOut = Object.assign({}, h, { price: __pn });
+          }
+          sessionStorage.setItem('rehlati_sel_hotel', JSON.stringify(hOut));
+        } catch (err) {}
         const q = new URLSearchParams({
           lang: LANG, cur: CUR, id: h.id, dk: S.dk, dest: S.destDisp || h.name.ar,
           ci: S.ci, co: S.co, rm: S.hRooms, ad: S.hAdults, ch: S.hChildren
@@ -1409,6 +1436,24 @@
       if (pk) {
         const p = PKGS.find(x => x.id === pk.dataset.pkg);
         if (!p) return;
+        /* [v1.6] تمرير الباقة الفعلية لصفحة الحجز — مع مطابقة أسماء الحقول (price→priceMad، g→gradient…)
+           وسعر السيرفر إجمالي للمسافرين → طُبّع للمسافر الواحد */
+        try {
+          let pOut = p;
+          if (/^pk-[a-z]+-\d+$/.test(String(p.id || ''))) {
+            pOut = {
+              id: p.id,
+              city: String(p.id).split('-')[1] || 'dxb',
+              ar: (p.title && p.title.ar) || '', en: (p.title && p.title.en) || '',
+              nights: p.nights || 5,
+              hotel: (p.hotel && (p.hotel.en || p.hotel.ar)) || '',
+              priceMad: Math.max(100, Math.round((p.price || 0) / Math.max(1, S.px || 2))),
+              gradient: p.g || 'from-cyan-500 to-blue-600',
+              includes: Array.isArray(p.inc) ? p.inc : ['flight', 'hotel', 'breakfast']
+            };
+          }
+          sessionStorage.setItem('rehlati_sel_pkg', JSON.stringify(pOut));
+        } catch (err) {}
         const q = new URLSearchParams({
           lang: LANG, cur: CUR, id: p.id, dest: p.dest[LANG],
           d1: S.d1, d2: S.d2 || '', px: S.px || 2
@@ -1439,6 +1484,8 @@
               .then(function (r) {
                 if (!r || !r.ok || !Array.isArray(r.offers) || !r.offers.length) return;
                 FLIGHTS.splice.apply(FLIGHTS, [0, FLIGHTS.length].concat(r.offers));
+                /* [v1.6] اقبل شركات Duffel الجديدة في الفلتر وإلا حُجبت النتائج */
+                r.offers.forEach(o => { if (o && o.al && !(o.al in FLT.als)) FLT.als[o.al] = true; });
                 renderAirlines(); renderHead(); renderSortBox(); renderPriceBuckets(); renderList(); renderSummary();
                 toast(t('apiServerResults'));
               }).catch(function () {});
@@ -1550,6 +1597,8 @@
             PKGS.splice.apply(PKGS, [0, PKGS.length].concat(r.offers));
           } else {
             FLIGHTS.splice.apply(FLIGHTS, [0, FLIGHTS.length].concat(r.offers));
+            /* [v1.6] اقبل شركات Duffel الجديدة في الفلتر وإلا حُجبت النتائج */
+            r.offers.forEach(o => { if (o && o.al && !(o.al in FLT.als)) FLT.als[o.al] = true; });
           }
           renderAirlines(); renderHead(); renderSortBox(); renderPriceBuckets(); renderList(); renderSummary();
           toast(t('apiServerResults'));

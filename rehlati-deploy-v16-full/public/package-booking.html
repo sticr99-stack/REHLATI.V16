@@ -1226,8 +1226,13 @@ n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>
       $('#curSelect').value = CUR;
       $('#langSelect').value = LANG;
 
-      /* الباقة: pk1|pk2|pk3 — وإلا pk3 */
-      PKG = PKGS.find(p => p.id === Q.get('id')) || PKGS[2];
+      /* الباقة: [v1.6] الباقة الفعلية المختارة من النتائج أولاً — ثم id — وإلا pk3 */
+      let __selP = null;
+      try { __selP = JSON.parse(sessionStorage.getItem('rehlati_sel_pkg') || 'null'); } catch (e) { __selP = null; }
+      const __pid = Q.get('id');
+      PKG = (__selP && __selP.id === __pid && typeof __selP.priceMad === 'number' && __selP.nights)
+        ? __selP
+        : PKGS.find(p => p.id === __pid) || PKGS[2];
       S.destRaw = Q.get('dest') || '';
       S.d1 = DATE_RE.test(Q.get('d1') || '') ? Q.get('d1') : fmtDate(addDays(today, 14));
       S.d2 = DATE_RE.test(Q.get('d2') || '') ? Q.get('d2') : fmtDate(addDays(parseDate(S.d1), PKG.nights));

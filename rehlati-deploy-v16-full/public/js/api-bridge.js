@@ -47,18 +47,19 @@
     return lsGet('rehlati_api_email') || null;
   }
 
-  /* اقتناص بريد الحجز: كائن الحجز ← الجلسة ← حقول النموذج الظاهرة */
+  /* اقتناص بريد الحجز [v1.5]: كائن الحجز ← حقول النموذج الظاهرة ← الجلسة
+     (الأسبقية لما يكتبه المستخدم فعلاً — بريد الجلسة القديم صار آخر حلول ملاذ) */
   function pickEmail(booking) {
     if (booking && booking.email && String(booking.email).indexOf('@') > 0) return String(booking.email).trim();
-    var s = sessionEmail();
-    if (s) return s;
     try {
       var el = document.getElementById('cEmail');
       if (el && el.value && el.value.indexOf('@') > 0) return el.value.trim();
+      var ge = document.getElementById('gEmail');
+      if (ge && ge.value && ge.value.indexOf('@') > 0) return ge.value.trim();
       var inp = document.querySelector('input[type="email"]');
       if (inp && inp.value && inp.value.indexOf('@') > 0) return inp.value.trim();
     } catch (e) {}
-    return '';
+    return sessionEmail() || '';
   }
 
   function token() { return lsGet('rehlati_token') || null; }

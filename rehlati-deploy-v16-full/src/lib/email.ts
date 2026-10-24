@@ -87,6 +87,7 @@ const T = {
     pax: 'المسافرون',
     cls: 'درجة السفر',
     hotel: 'الفندق',
+    hotelTel: 'هاتف الفندق',
     city: 'المدينة',
     checkin: 'تسجيل الوصول',
     checkout: 'تسجيل المغادرة',
@@ -118,6 +119,7 @@ const T = {
     pax: 'Passengers',
     cls: 'Cabin class',
     hotel: 'Hotel',
+    hotelTel: 'Hotel phone',
     city: 'City',
     checkin: 'Check-in',
     checkout: 'Check-out',
@@ -190,6 +192,7 @@ function rowsFor(b: BookingEmailData, t: (typeof T)['ar'] | (typeof T)['en']): R
     const rm = num('rm')
     rows.push(
       { label: t.hotel, value: s('hotel') || '—' },
+      ...(s('tel') ? [{ label: t.hotelTel, value: s('tel') as string }] : []),
       { label: t.city, value: s('city') || '—' },
       { label: t.checkin, value: s('ci') || '—' },
       { label: t.checkout, value: s('co') || '—' },

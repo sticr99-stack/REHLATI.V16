@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <script>/* [رحلتي sec] حماية من الحشر في إطار (Clickjacking) */ if (self !== top) { try { top.location = self.location; } catch (e) { document.documentElement.style.display = 'none'; } }</script>
+  <meta name="description" content="نتائج البحث عن رحلات الطيران والفنادق — قارن الأسعار واختر الأنسب لك" />
+  <title>رحلتي | نتائج البحث — طيران وفنادق</title>
+
+  <!-- أيقونات Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a" crossorigin="anonymous" />
+  <!-- Tailwind CSS: بناء محلي (بدل CDN) -->
+  <!-- Tailwind CSS: بناء محلي مدمج داخل الصفحة (المصدر: css/results.css) — v15 -->
+  <!-- Tailwind CSS: بناء محلي مدمج داخل الصفحة (المصدر: css/results.css) — v15 -->
+  <style data-inlined-css="results">
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Cairo,Inter,ui-sans-serif,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.field{min-width:0;border-radius:.75rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(226 232 240/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1));padding:.75rem;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.field:focus-within{--tw-border-opacity:1;border-color:rgb(59 130 246/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1));--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);--tw-ring-opacity:1;--tw-ring-color:rgb(219 234 254/var(--tw-ring-opacity,1))}.field:hover{--tw-border-opacity:1;border-color:rgb(96 165 250/var(--tw-border-opacity,1))}.field-label{margin-bottom:.125rem;display:flex;align-items:center;gap:.375rem;font-size:11px;font-weight:700;--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.field-input{width:100%;min-width:0;background-color:transparent;font-size:.875rem;line-height:1.25rem;font-weight:700;--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.field-input::-moz-placeholder{font-weight:400;--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.field-input::placeholder{font-weight:400;--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.field-input:focus{outline:2px solid transparent;outline-offset:2px}.field-summary{min-width:0;font-size:.875rem;line-height:1.25rem;font-weight:600;--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.step-btn{display:grid;height:2rem;width:2rem;place-items:center;border-radius:9999px;border-width:1px;--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity,1));--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1));transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.step-btn:hover{--tw-border-opacity:1;border-color:rgb(59 130 246/var(--tw-border-opacity,1));--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.step-btn:disabled{cursor:not-allowed;opacity:.35}.glass-chip{border-radius:9999px;border-width:1px;border-color:hsla(0,0%,100%,.15);background-color:hsla(0,0%,100%,.1);padding:.375rem 1rem;--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.flt-title{margin-bottom:.5rem;gap:.5rem;font-weight:800;color:rgb(30 41 59/var(--tw-text-opacity,1))}.flt-row,.flt-title{display:flex;align-items:center;font-size:.875rem;line-height:1.25rem;--tw-text-opacity:1}.flt-row{cursor:pointer;gap:.625rem;padding-top:.375rem;padding-bottom:.375rem;color:rgb(71 85 105/var(--tw-text-opacity,1));transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.flt-row:hover{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.flt-check{height:1rem;width:1rem;accent-color:#2563eb}.sort-pill{border-radius:9999px;padding:.375rem 1rem;font-size:.75rem;line-height:1rem;font-weight:700;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}@media (min-width:640px){.sort-pill{font-size:.875rem;line-height:1.25rem}}.al-badge{display:grid;height:2.25rem;width:2.25rem;flex-shrink:0;place-items:center;border-radius:9999px;font-size:11px;font-weight:800;--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1));--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.drawer-panel{transform:translateX(-100%);visibility:hidden;transition:transform .3s cubic-bezier(.4,0,.2,1),visibility 0s linear .32s;will-change:transform}[dir=rtl] .drawer-panel{transform:translateX(100%)}.drawer-panel.drawer-open{transform:translateX(0);visibility:visible;transition:transform .3s cubic-bezier(.4,0,.2,1)}.drawer-scrim{opacity:0;transition:opacity .3s ease}.drawer-scrim.drawer-scrim-show{opacity:1}.burger-box{position:relative;display:block;width:1.25rem;height:1rem}.burger-line{position:absolute;left:0;right:0;height:2px;border-radius:9999px;background:currentColor;transition:transform .3s ease,opacity .2s ease}.burger-line:first-child{top:0}.burger-line:nth-child(2){top:.4375rem}.burger-line:nth-child(3){bottom:0}[aria-expanded=true] .burger-line:first-child{transform:translateY(.4375rem) rotate(45deg)}[aria-expanded=true] .burger-line:nth-child(2){opacity:0;transform:scaleX(.6)}[aria-expanded=true] .burger-line:nth-child(3){transform:translateY(-.4375rem) rotate(-45deg)}@media (prefers-reduced-motion:reduce){.burger-line,.drawer-panel,.drawer-scrim{transition:none!important}}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.inset-x-0{left:0;right:0}.inset-x-3{left:.75rem;right:.75rem}.inset-y-0{top:0;bottom:0}.-bottom-40{bottom:-10rem}.-end-32{inset-inline-end:-8rem}.-start-32{inset-inline-start:-8rem}.-top-32{top:-8rem}.bottom-16{bottom:4rem}.bottom-3{bottom:.75rem}.bottom-5{bottom:1.25rem}.bottom-6{bottom:1.5rem}.end-3{inset-inline-end:.75rem}.left-1\/2{left:50%}.start-0{inset-inline-start:0}.start-1\/2{inset-inline-start:50%}.start-3{inset-inline-start:.75rem}.start-4{inset-inline-start:1rem}.top-1\/2{top:50%}.top-3{top:.75rem}.top-full{top:100%}.z-10{z-index:10}.z-20{z-index:20}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.z-\[70\]{z-index:70}.z-\[80\]{z-index:80}.mx-0\.5{margin-left:.125rem;margin-right:.125rem}.mx-1{margin-left:.25rem;margin-right:.25rem}.mx-2{margin-left:.5rem;margin-right:.5rem}.mx-auto{margin-left:auto;margin-right:auto}.my-3{margin-top:.75rem;margin-bottom:.75rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.me-1{margin-inline-end:.25rem}.me-1\.5{margin-inline-end:.375rem}.ms-1{margin-inline-start:.25rem}.ms-2{margin-inline-start:.5rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-8{margin-top:2rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.\!h-7{height:1.75rem!important}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-16{height:4rem}.h-40{height:10rem}.h-80{height:20rem}.h-9{height:2.25rem}.h-96{height:24rem}.h-px{height:1px}.max-h-\[70vh\]{max-height:70vh}.\!w-7{width:1.75rem!important}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-16{width:4rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-80{width:20rem}.w-9{width:2.25rem}.w-96{width:24rem}.w-\[22rem\]{width:22rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-7xl{max-width:80rem}.max-w-\[80\%\]{max-width:80%}.max-w-\[85vw\]{max-width:85vw}.max-w-sm{max-width:24rem}.max-w-xs{max-width:20rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.-translate-y-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%}.rotate-180{--tw-rotate:180deg}.rotate-180,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-\[auto_1fr_auto\]{grid-template-columns:auto 1fr auto}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-x-2{-moz-column-gap:.5rem;column-gap:.5rem}.gap-x-3{-moz-column-gap:.75rem;column-gap:.75rem}.gap-y-1{row-gap:.25rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.rounded-bl-sm{border-bottom-left-radius:.125rem}.border{border-width:1px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-brand-600{--tw-border-opacity:1;border-color:rgb(37 99 235/var(--tw-border-opacity,1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249/var(--tw-border-opacity,1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240/var(--tw-border-opacity,1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity,1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.border-white\/15{border-color:hsla(0,0%,100%,.15)}.border-white\/20{border-color:hsla(0,0%,100%,.2)}.bg-\[\#073590\]{--tw-bg-opacity:1;background-color:rgb(7 53 144/var(--tw-bg-opacity,1))}.bg-\[\#5c0632\]{--tw-bg-opacity:1;background-color:rgb(92 6 50/var(--tw-bg-opacity,1))}.bg-\[\#c8102e\]{--tw-bg-opacity:1;background-color:rgb(200 16 46/var(--tw-bg-opacity,1))}.bg-\[\#ffcd00\]{--tw-bg-opacity:1;background-color:rgb(255 205 0/var(--tw-bg-opacity,1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199/var(--tw-bg-opacity,1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36/var(--tw-bg-opacity,1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235/var(--tw-bg-opacity,1))}.bg-brand-50{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.bg-brand-600{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.bg-brand-600\/10{background-color:rgba(37,99,235,.1)}.bg-brand-800{--tw-bg-opacity:1;background-color:rgb(30 64 175/var(--tw-bg-opacity,1))}.bg-brand-900{--tw-bg-opacity:1;background-color:rgb(30 58 138/var(--tw-bg-opacity,1))}.bg-cyan-100{--tw-bg-opacity:1;background-color:rgb(207 250 254/var(--tw-bg-opacity,1))}.bg-cyan-400\/20{background-color:rgba(34,211,238,.2)}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245/var(--tw-bg-opacity,1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105/var(--tw-bg-opacity,1))}.bg-emerald-700{--tw-bg-opacity:1;background-color:rgb(4 120 87/var(--tw-bg-opacity,1))}.bg-indigo-500\/25{background-color:rgba(99,102,241,.25)}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38/var(--tw-bg-opacity,1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.bg-slate-900\/50{background-color:rgba(15,23,42,.5)}.bg-slate-900\/90{background-color:rgba(15,23,42,.9)}.bg-slate-950\/60{background-color:rgba(2,6,23,.6)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/10{background-color:hsla(0,0%,100%,.1)}.bg-white\/90{background-color:hsla(0,0%,100%,.9)}.bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}.bg-gradient-to-bl{background-image:linear-gradient(to bottom left,var(--tw-gradient-stops))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-l{background-image:linear-gradient(to left,var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right,var(--tw-gradient-stops))}.from-amber-400{--tw-gradient-from:#fbbf24 var(--tw-gradient-from-position);--tw-gradient-to:rgba(251,191,36,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-amber-500{--tw-gradient-from:#f59e0b var(--tw-gradient-from-position);--tw-gradient-to:rgba(245,158,11,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-brand-600{--tw-gradient-from:#2563eb var(--tw-gradient-from-position);--tw-gradient-to:rgba(37,99,235,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-brand-900{--tw-gradient-from:#1e3a8a var(--tw-gradient-from-position);--tw-gradient-to:rgba(30,58,138,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-cyan-500{--tw-gradient-from:#06b6d4 var(--tw-gradient-from-position);--tw-gradient-to:rgba(6,182,212,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-cyan-600{--tw-gradient-from:#0891b2 var(--tw-gradient-from-position);--tw-gradient-to:rgba(8,145,178,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-emerald-600{--tw-gradient-from:#059669 var(--tw-gradient-from-position);--tw-gradient-to:rgba(5,150,105,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-orange-400{--tw-gradient-from:#fb923c var(--tw-gradient-from-position);--tw-gradient-to:rgba(251,146,60,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-rose-500{--tw-gradient-from:#f43f5e var(--tw-gradient-from-position);--tw-gradient-to:rgba(244,63,94,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-slate-600{--tw-gradient-from:#475569 var(--tw-gradient-from-position);--tw-gradient-to:rgba(71,85,105,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-violet-600{--tw-gradient-from:#7c3aed var(--tw-gradient-from-position);--tw-gradient-to:rgba(124,58,237,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-\[\#123a6d\]{--tw-gradient-to:rgba(18,58,109,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#123a6d var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-blue-600{--tw-gradient-to:#2563eb var(--tw-gradient-to-position)}.to-blue-800{--tw-gradient-to:#1e40af var(--tw-gradient-to-position)}.to-brand-500{--tw-gradient-to:#3b82f6 var(--tw-gradient-to-position)}.to-brand-700{--tw-gradient-to:#1d4ed8 var(--tw-gradient-to-position)}.to-brand-800{--tw-gradient-to:#1e40af var(--tw-gradient-to-position)}.to-orange-500{--tw-gradient-to:#f97316 var(--tw-gradient-to-position)}.to-orange-700{--tw-gradient-to:#c2410c var(--tw-gradient-to-position)}.to-purple-800{--tw-gradient-to:#6b21a8 var(--tw-gradient-to-position)}.to-red-700{--tw-gradient-to:#b91c1c var(--tw-gradient-to-position)}.to-rose-500{--tw-gradient-to:#f43f5e var(--tw-gradient-to-position)}.to-slate-800{--tw-gradient-to:#1e293b var(--tw-gradient-to-position)}.to-teal-800{--tw-gradient-to:#115e59 var(--tw-gradient-to-position)}.p-1\.5{padding:.375rem}.p-10{padding:2.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-1{padding-left:.25rem;padding-right:.25rem}.px-1\.5{padding-left:.375rem;padding-right:.375rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.px-8{padding-left:2rem;padding-right:2rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-14{padding-bottom:3.5rem}.pb-3{padding-bottom:.75rem}.pe-8{padding-inline-end:2rem}.ps-8{padding-inline-start:2rem}.pt-2{padding-top:.5rem}.pt-3{padding-top:.75rem}.text-center{text-align:center}.text-start{text-align:start}.align-middle{vertical-align:middle}.font-sans{font-family:Cairo,Inter,ui-sans-serif,system-ui,sans-serif}.\!text-\[9px\]{font-size:9px!important}.text-2xl{font-size:1.5rem;line-height:2rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.leading-5{line-height:1.25rem}.leading-6{line-height:1.5rem}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-widest{letter-spacing:.1em}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36/var(--tw-text-opacity,1))}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11/var(--tw-text-opacity,1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6/var(--tw-text-opacity,1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9/var(--tw-text-opacity,1))}.text-blue-100{--tw-text-opacity:1;color:rgb(219 234 254/var(--tw-text-opacity,1))}.text-blue-100\/80{color:rgba(219,234,254,.8)}.text-brand-500{--tw-text-opacity:1;color:rgb(59 130 246/var(--tw-text-opacity,1))}.text-brand-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.text-brand-700{--tw-text-opacity:1;color:rgb(29 78 216/var(--tw-text-opacity,1))}.text-brand-800{--tw-text-opacity:1;color:rgb(30 64 175/var(--tw-text-opacity,1))}.text-brand-900{--tw-text-opacity:1;color:rgb(30 58 138/var(--tw-text-opacity,1))}.text-cyan-700{--tw-text-opacity:1;color:rgb(14 116 144/var(--tw-text-opacity,1))}.text-emerald-500{--tw-text-opacity:1;color:rgb(16 185 129/var(--tw-text-opacity,1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-white\/80{color:hsla(0,0%,100%,.8)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-70{opacity:.7}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color)}.shadow,.shadow-2xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-card{--tw-shadow:0 10px 40px -12px rgba(30,58,138,.18);--tw-shadow-colored:0 10px 40px -12px var(--tw-shadow-color)}.shadow-card,.shadow-lg{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-brand-600\/25{--tw-shadow-color:rgba(37,99,235,.25);--tw-shadow:var(--tw-shadow-colored)}.shadow-brand-600\/30{--tw-shadow-color:rgba(37,99,235,.3);--tw-shadow:var(--tw-shadow-colored)}.outline-none{outline:2px solid transparent;outline-offset:2px}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-brand-600\/20{--tw-ring-color:rgba(37,99,235,.2)}.blur-3xl{--tw-blur:blur(64px)}.blur-3xl,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px)}.backdrop-blur,.backdrop-blur-sm{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}.hover\:-translate-y-0\.5:hover{--tw-translate-y:-0.125rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-brand-300:hover{--tw-border-opacity:1;border-color:rgb(147 197 253/var(--tw-border-opacity,1))}.hover\:border-brand-400:hover{--tw-border-opacity:1;border-color:rgb(96 165 250/var(--tw-border-opacity,1))}.hover\:border-slate-300:hover{--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity,1))}.hover\:bg-brand-600:hover{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.hover\:bg-brand-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216/var(--tw-bg-opacity,1))}.hover\:bg-brand-800:hover{--tw-bg-opacity:1;background-color:rgb(30 64 175/var(--tw-bg-opacity,1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.hover\:bg-white\/10:hover{background-color:hsla(0,0%,100%,.1)}.hover\:bg-white\/20:hover{background-color:hsla(0,0%,100%,.2)}.hover\:text-brand-600:hover{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.hover\:text-brand-800:hover{--tw-text-opacity:1;color:rgb(30 64 175/var(--tw-text-opacity,1))}.hover\:text-brand-900:hover{--tw-text-opacity:1;color:rgb(30 58 138/var(--tw-text-opacity,1))}.hover\:text-slate-700:hover{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:shadow-card:hover{--tw-shadow:0 10px 40px -12px rgba(30,58,138,.18);--tw-shadow-colored:0 10px 40px -12px var(--tw-shadow-color)}.hover\:shadow-card:hover,.hover\:shadow-lg:hover{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.hover\:shadow-xl:hover{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.hover\:shadow-brand-600\/40:hover{--tw-shadow-color:rgba(37,99,235,.4);--tw-shadow:var(--tw-shadow-colored)}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:text-brand-700{--tw-text-opacity:1;color:rgb(29 78 216/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:block{display:block}.sm\:h-full{height:100%}.sm\:min-h-\[11rem\]{min-height:11rem}.sm\:grid-cols-\[230px_1fr\]{grid-template-columns:230px 1fr}.sm\:gap-4{gap:1rem}.sm\:p-4{padding:1rem}.sm\:p-5{padding:1.25rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width:768px){.md\:col-span-2{grid-column:span 2/span 2}.md\:block{display:block}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:sticky{position:sticky}.lg\:top-6{top:1.5rem}.lg\:z-20{z-index:20}.lg\:mt-2{margin-top:.5rem}.lg\:block{display:block}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:grid-cols-\[170px_1fr_185px\]{grid-template-columns:170px 1fr 185px}.lg\:grid-cols-\[17rem_1fr\]{grid-template-columns:17rem 1fr}.lg\:grid-cols-\[230px_1fr_230px\]{grid-template-columns:230px 1fr 230px}.lg\:flex-col{flex-direction:column}.lg\:items-end{align-items:flex-end}.lg\:justify-center{justify-content:center}.lg\:border-s{border-inline-start-width:1px}.lg\:border-t-0{border-top-width:0}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:ps-5{padding-inline-start:1.25rem}.lg\:pt-0{padding-top:0}.lg\:text-end{text-align:end}}@media (min-width:1280px){.xl\:col-span-1{grid-column:span 1/span 1}.xl\:col-span-2{grid-column:span 2/span 2}.xl\:grid-cols-\[1\.5fr_1fr_1fr_1\.3fr_auto\]{grid-template-columns:1.5fr 1fr 1fr 1.3fr auto}.xl\:grid-cols-\[1\.6fr_1\.6fr_1fr_1fr_1\.45fr_auto\]{grid-template-columns:1.6fr 1.6fr 1fr 1fr 1.45fr auto}}.rtl\:-scale-x-100:where([dir=rtl],[dir=rtl] *){--tw-scale-x:-1;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.\[\&\>option\]\:text-slate-800>option{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}
+  </style>
+  <!-- خط Cairo العربي -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+
+  <style>
+    /* توحيد شكل حقول التاريخ */
+    input[type="date"] { -webkit-appearance: none; appearance: none; }
+    input[type="date"]::-webkit-calendar-picker-indicator { opacity: .55; cursor: pointer; }
+
+    /* أنيميشن فتح القوائم المنسدلة
+       [v1.5+] fill-mode: backwards بدل both — بعد انتهاء الحركة يُزال التحويل العالق
+       فلا يبقى سياق تكديس يحبس النافذة المنبثقة تحت باقي العناصر */
+    @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .anim-pop { animation: pop .18s ease-out backwards; }
+
+    /* أنيميشن ظهور البطاقات */
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .anim-rise { animation: rise .45s ease-out backwards; }
+    .anim-rise-late { animation: rise .45s .12s ease-out backwards; }
+
+    /* [v1.5+] أثناء انفتاح لوحة العدّاد تُرفع بطاقة الملخص فوق بقية الصفحة */
+    .anim-rise:has(#rsPaxPanel:not(.hidden)),
+    .anim-rise:has(#rsGuestsPanel:not(.hidden)) { z-index: 40; }
+
+    /* دوران أيقونة زر التبديل من/إلى */
+    #rsSwapBtn.spin i { transform: rotate(180deg); }
+    #rsSwapBtn i { transition: transform .3s ease; }
+
+    /* نمط نقطي خفيف فوق تدرج الخلفية */
+    .hero-dots { background-image: radial-gradient(rgba(255,255,255,.13) 1px, transparent 1px); background-size: 22px 22px; }
+
+    /* الخط اللاتيني عند التبديل إلى الإنجليزية */
+    html[lang="en"] body { font-family: 'Inter', 'Cairo', ui-sans-serif, system-ui, sans-serif; }
+
+    /* شريط تمرير مخفي لصفوف المعاينة */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { scrollbar-width: none; }
+  </style>
+
+<script src="js/api-bridge.js"></script>
+</head>
+
+<body class="bg-slate-100 font-sans text-slate-800 antialiased">
+
+  <!-- ===================== الهيدر: تنقل + ملخص البحث + تعديل البحث ===================== -->
+  <header class="relative bg-gradient-to-bl from-brand-900 via-[#123a6d] to-brand-700">
+
+    <!-- طبقة الزخارف -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="absolute inset-0 hero-dots opacity-70"></div>
+      <div class="absolute -top-32 -start-32 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl"></div>
+      <div class="absolute -bottom-40 -end-32 h-96 w-96 rounded-full bg-indigo-500/25 blur-3xl"></div>
+    </div>
+
+    <!-- ===== شريط التنقل ===== -->
+    <nav class="relative z-20 mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 lg:px-8">
+      <!-- زر الهامبرغر: ثلاثة خطوط أفقية (2px) — عقد NameThatUI: aria-expanded + aria-controls -->
+      <button id="menuBtn" type="button" class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/15 bg-white/10 text-white transition hover:bg-white/20 lg:hidden" aria-expanded="false" aria-controls="navDrawer" aria-label="فتح القائمة">
+        <span class="burger-box" aria-hidden="true">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </span>
+      </button>
+      <!-- الشعار (يعود لصفحة البحث) -->
+      <a href="flight-hotel-search-bar.html" class="flex items-center gap-2.5" title="رحلتي — البحث">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-tr from-amber-400 to-orange-500 text-white shadow-lg">
+          <i class="fa-solid fa-plane-up text-lg"></i>
+        </span>
+        <span class="text-2xl font-extrabold tracking-tight text-white"><span data-i18n="brand">رحلتي</span><span class="text-amber-400">.</span></span>
+      </a>
+
+      <!-- الروابط الرئيسية (سطح المكتب) -->
+      <ul class="hidden items-center gap-7 text-sm font-semibold text-blue-100 lg:flex">
+        <li><a class="transition hover:text-white" href="flight-hotel-search-bar.html"><span data-i18n="navHome">الرئيسية</span></a></li>
+        <li><a id="navFlights" class="cursor-pointer text-white" href="#"><span data-i18n="navFlights">طيران</span></a></li>
+        <li><a id="navHotels" class="cursor-pointer transition hover:text-white" href="#"><span data-i18n="navHotels">فنادق</span></a></li>
+        <li><a class="transition hover:text-white" href="#"><span data-i18n="navPackages">باقات سياحية</span></a></li>
+        <li><a class="transition hover:text-white" href="#"><span data-i18n="navDeals">العروض</span> <span class="me-1 rounded-md bg-amber-400 px-1.5 py-0.5 text-[10px] font-extrabold text-brand-900" data-i18n="badgeNew">جديد</span></a></li>
+      </ul>
+
+      <!-- العملة واللغة والدخول -->
+      <div class="flex items-center gap-2.5">
+        <select id="curSelect" class="hidden rounded-lg border border-white/15 bg-white/10 px-2 py-1.5 text-xs font-semibold text-white outline-none backdrop-blur md:block [&>option]:text-slate-800" aria-label="العملة">
+          <option value="MAD" selected>د.م. MAD</option>
+          <option value="EUR">€ EUR</option>
+          <option value="USD">$ USD</option>
+          <option value="SAR">ر.س SAR</option>
+          <option value="AED">د.إ AED</option>
+          <option value="EGP">ج.م EGP</option>
+        </select>
+        <select id="langSelect" class="rounded-lg border border-white/15 bg-white/10 px-2 py-1.5 text-xs font-semibold text-white outline-none backdrop-blur [&>option]:text-slate-800" aria-label="اللغة">
+          <option value="ar" selected>العربية</option>
+          <option value="en">English</option>
+        </select>
+        <a href="sign-in.html" class="hidden rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold text-white backdrop-blur transition hover:bg-white hover:text-brand-900 sm:block">
+          <i class="fa-regular fa-user ms-1"></i> <span data-i18n="signin">تسجيل الدخول</span>
+        </a>
+      </div>
+    </nav>
+
+
+    <!-- ===== شريط ملخص البحث ===== -->
+    <div class="anim-rise relative z-10 mx-auto max-w-7xl px-4 pb-3 pt-2 lg:px-8">
+      <div class="rounded-2xl border border-white/15 bg-white/10 p-3 backdrop-blur sm:p-4">
+        <div class="flex flex-wrap items-center gap-3">
+          <span id="sumIcon" class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-tr from-amber-400 to-orange-500 text-white shadow-lg">
+            <i class="fa-solid fa-plane-up text-lg"></i>
+          </span>
+          <div class="min-w-0 flex-1">
+            <p id="sumRoute" class="flex flex-wrap items-center gap-x-2 truncate text-base font-extrabold text-white sm:text-lg"></p>
+            <div class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-blue-100">
+              <span id="sumTrip" class="rounded-md bg-amber-400 px-1.5 py-0.5 text-[10px] font-extrabold text-brand-900"></span>
+              <span id="sumDates" class="inline-flex items-center gap-1.5"></span>
+              <span id="sumPax" class="inline-flex items-center gap-1.5"></span>
+            </div>
+          </div>
+          <button id="editBtn" aria-expanded="false" aria-controls="editPanel"
+            class="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-extrabold text-brand-800 shadow transition hover:-translate-y-0.5 hover:shadow-lg">
+            <i class="fa-solid fa-sliders text-brand-500"></i>
+            <span data-i18n="editSearch" id="editLabel">تعديل البحث</span>
+            <i id="editChevron" class="fa-solid fa-chevron-down text-xs text-slate-400 transition"></i>
+          </button>
+        </div>
+
+        <!-- ===== لوحة تعديل البحث (تنسدل تحت الملخص) ===== -->
+        <div id="editPanel" class="hidden">
+          <div class="anim-pop mt-3 rounded-2xl bg-white p-4 shadow-card sm:p-5">
+
+            <!-- التبويبات: طيران / فنادق -->
+            <div class="mb-4 flex w-full max-w-xs gap-1 rounded-2xl bg-slate-100 p-1.5" role="tablist" aria-label="نوع الخدمة">
+              <button id="tabFlights" role="tab" aria-selected="true"
+                class="flex-1 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-brand-800 shadow transition">
+                <i class="fa-solid fa-plane me-1.5"></i> <span data-i18n="tabFlights">طيران</span>
+              </button>
+              <button id="tabHotels" role="tab" aria-selected="false"
+                class="flex-1 rounded-xl px-4 py-2.5 text-sm font-bold text-slate-500 transition hover:text-slate-700">
+                <i class="fa-solid fa-hotel me-1.5"></i> <span data-i18n="tabHotels">فنادق</span>
+              </button>
+            </div>
+
+            <!-- ==================== نموذج الطيران ==================== -->
+            <form id="rsFlightForm" novalidate autocomplete="off">
+              <!-- نوع الرحلة -->
+              <div class="mb-4 flex flex-wrap items-center gap-2" role="group" aria-label="نوع الرحلة">
+                <button type="button" data-trip="round" class="rs-trip-btn rounded-full bg-brand-600 px-5 py-1.5 text-xs font-bold text-white shadow-sm transition sm:text-sm"><span data-i18n="tripRound">ذهاب وعودة</span></button>
+                <button type="button" data-trip="one"    class="rs-trip-btn rounded-full bg-slate-100 px-5 py-1.5 text-xs font-bold text-slate-600 transition hover:bg-slate-200 sm:text-sm"><span data-i18n="tripOne">ذهاب فقط</span></button>
+              </div>
+
+              <div class="grid grid-cols-1 gap-2.5 md:grid-cols-2 xl:grid-cols-[1.6fr_1.6fr_1fr_1fr_1.45fr_auto]">
+                <!-- من / إلى + زر التبديل -->
+                <div class="relative grid min-w-0 grid-cols-1 gap-2.5 md:col-span-2 md:grid-cols-2 xl:col-span-2">
+                  <div class="field">
+                    <label for="rsFrom" class="field-label"><i class="fa-solid fa-plane-departure text-brand-500"></i> <span data-i18n="from">من</span></label>
+                    <input id="rsFrom" class="field-input pe-8" type="text" list="airportsList" placeholder="مدينة أو مطار" data-i18n-ph="phAirport" />
+                  </div>
+                  <div class="field">
+                    <label for="rsTo" class="field-label"><i class="fa-solid fa-plane-arrival text-brand-500"></i> <span data-i18n="to">إلى</span></label>
+                    <input id="rsTo" class="field-input ps-8" type="text" list="airportsList" placeholder="مدينة أو مطار" data-i18n-ph="phAirport" />
+                  </div>
+                  <button type="button" id="rsSwapBtn" aria-label="تبديل وجهتَي المغادرة والوصول"
+                    class="absolute left-1/2 top-1/2 z-10 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-white bg-brand-600 text-white shadow-lg transition hover:bg-brand-700">
+                    <i class="fa-solid fa-arrow-right-arrow-left text-xs"></i>
+                  </button>
+                </div>
+
+                <!-- تاريخ المغادرة -->
+                <div class="field">
+                  <label for="rsDep" class="field-label"><i class="fa-solid fa-calendar-days text-brand-500"></i> <span data-i18n="depDate">تاريخ المغادرة</span></label>
+                  <input id="rsDep" class="field-input" type="date" />
+                </div>
+
+                <!-- تاريخ العودة -->
+                <div class="field" id="rsRetWrap">
+                  <label for="rsRet" class="field-label"><i class="fa-solid fa-calendar-days text-brand-500"></i> <span data-i18n="retDate">تاريخ العودة</span></label>
+                  <input id="rsRet" class="field-input" type="date" />
+                </div>
+
+                <!-- المسافرون والدرجة -->
+                <div class="relative md:col-span-2 xl:col-span-1" id="rsPaxWrap">
+                  <button type="button" id="rsPaxBtn" aria-expanded="false" aria-haspopup="true" class="field w-full text-start">
+                    <span class="field-label"><i class="fa-solid fa-user-group text-brand-500"></i> <span data-i18n="paxClass">المسافرون والدرجة</span></span>
+                    <span class="flex items-center justify-between gap-2">
+                      <span id="rsPaxSummary" class="field-summary truncate">2 مسافران • اقتصادية</span>
+                      <i id="rsPaxChevron" class="fa-solid fa-chevron-down text-xs text-slate-400 transition"></i>
+                    </span>
+                  </button>
+
+                  <!-- لوحة المسافرين -->
+                  <div id="rsPaxPanel" class="anim-pop absolute top-full start-0 z-[70] mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
+                    <div class="flex items-center justify-between py-2">
+                      <div>
+                        <p class="text-sm font-bold text-slate-800" data-i18n="adults">بالغون</p>
+                        <p class="text-xs text-slate-500" data-i18n="adultsHint">12 سنة فأكثر</p>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <button type="button" class="step-btn" data-key="fAdults" data-d="-1" aria-label="تقليل البالغين"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                        <span id="fAdultsVal" class="w-6 text-center font-bold">2</span>
+                        <button type="button" class="step-btn" data-key="fAdults" data-d="1" aria-label="زيادة البالغين"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between py-2">
+                      <div>
+                        <p class="text-sm font-bold text-slate-800" data-i18n="children">أطفال</p>
+                        <p class="text-xs text-slate-500" data-i18n="childrenHint">2 – 11 سنة</p>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <button type="button" class="step-btn" data-key="fChildren" data-d="-1" aria-label="تقليل الأطفال"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                        <span id="fChildrenVal" class="w-6 text-center font-bold">0</span>
+                        <button type="button" class="step-btn" data-key="fChildren" data-d="1" aria-label="زيادة الأطفال"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between py-2">
+                      <div>
+                        <p class="text-sm font-bold text-slate-800" data-i18n="infants">رُضّع</p>
+                        <p class="text-xs text-slate-500" data-i18n="infantsHint">أقل من سنتين — بدون مقعد</p>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <button type="button" class="step-btn" data-key="fInfants" data-d="-1" aria-label="تقليل الرضع"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                        <span id="fInfantsVal" class="w-6 text-center font-bold">0</span>
+                        <button type="button" class="step-btn" data-key="fInfants" data-d="1" aria-label="زيادة الرضع"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                      </div>
+                    </div>
+
+                    <hr class="my-3 border-slate-100" />
+                    <p class="mb-2 text-sm font-bold text-slate-800" data-i18n="classTitle">درجة السفر</p>
+                    <div class="grid grid-cols-3 gap-1.5" id="rsClassPills">
+                      <button type="button" data-v="clsEco"   class="rs-cls-btn rounded-xl border border-brand-600 bg-brand-50 px-2 py-2 text-xs font-bold text-brand-700 transition"><span data-i18n="clsEco">اقتصادية</span></button>
+                      <button type="button" data-v="clsBiz"   class="rs-cls-btn rounded-xl border border-slate-200 px-2 py-2 text-xs font-bold text-slate-500 transition hover:border-slate-300"><span data-i18n="clsBiz">رجال الأعمال</span></button>
+                      <button type="button" data-v="clsFirst" class="rs-cls-btn rounded-xl border border-slate-200 px-2 py-2 text-xs font-bold text-slate-500 transition hover:border-slate-300"><span data-i18n="clsFirst">الأولى</span></button>
+                    </div>
+
+                    <button type="button" id="rsPaxDone" class="mt-4 w-full rounded-xl bg-brand-600 py-2.5 text-sm font-bold text-white transition hover:bg-brand-700"><span data-i18n="done">تم</span></button>
+                  </div>
+                </div>
+
+                <!-- زر البحث -->
+                <button type="submit"
+                  class="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-l from-brand-600 to-brand-500 px-8 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-brand-600/30 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-600/40 md:col-span-2 xl:col-span-1">
+                  <i class="fa-solid fa-magnifying-glass transition group-hover:scale-110"></i>
+                  <span data-i18n="btnSearchFlights">ابحث عن الرحلات</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- ==================== نموذج الفنادق ==================== -->
+            <form id="rsHotelForm" class="hidden" novalidate autocomplete="off">
+              <div class="grid grid-cols-1 gap-2.5 md:grid-cols-2 xl:grid-cols-[1.5fr_1fr_1fr_1.3fr_auto]">
+                <!-- الوجهة -->
+                <div class="field md:col-span-2 xl:col-span-1">
+                  <label for="rsDest" class="field-label"><i class="fa-solid fa-location-dot text-brand-500"></i> <span data-i18n="dest">الوجهة / اسم الفندق</span></label>
+                  <input id="rsDest" class="field-input" type="text" list="citiesList" placeholder="مدينة أو منطقة أو فندق" data-i18n-ph="phDest" />
+                </div>
+
+                <!-- تاريخ الوصول -->
+                <div class="field">
+                  <label for="rsCin" class="field-label"><i class="fa-solid fa-calendar-days text-brand-500"></i> <span data-i18n="checkin">تاريخ الوصول</span></label>
+                  <input id="rsCin" class="field-input" type="date" />
+                </div>
+
+                <!-- تاريخ المغادرة -->
+                <div class="field">
+                  <label for="rsCout" class="field-label"><i class="fa-solid fa-calendar-days text-brand-500"></i> <span data-i18n="checkout">تاريخ المغادرة</span></label>
+                  <input id="rsCout" class="field-input" type="date" />
+                </div>
+
+                <!-- الغرف والنزلاء -->
+                <div class="relative md:col-span-2 xl:col-span-1" id="rsGuestsWrap">
+                  <button type="button" id="rsGuestsBtn" aria-expanded="false" aria-haspopup="true" class="field w-full text-start">
+                    <span class="field-label"><i class="fa-solid fa-user-group text-brand-500"></i> <span data-i18n="roomsGuests">الغرف والنزلاء</span></span>
+                    <span class="flex items-center justify-between gap-2">
+                      <span id="rsGuestsSummary" class="field-summary truncate">1 غرفة • 2 ضيوف</span>
+                      <i id="rsGuestsChevron" class="fa-solid fa-chevron-down text-xs text-slate-400 transition"></i>
+                    </span>
+                  </button>
+
+                  <!-- لوحة الغرف والنزلاء -->
+                  <div id="rsGuestsPanel" class="anim-pop absolute top-full start-0 z-[70] mt-2 hidden w-[22rem] max-w-[85vw] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
+                    <div class="flex items-center justify-between py-2">
+                      <div>
+                        <p class="text-sm font-bold text-slate-800" data-i18n="rooms">الغرف</p>
+                        <p class="text-xs text-slate-500" data-i18n="roomsHint">1 – 6 غرف</p>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <button type="button" class="step-btn" data-key="hRooms" data-d="-1" aria-label="تقليل الغرف"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                        <span id="hRoomsVal" class="w-6 text-center font-bold">1</span>
+                        <button type="button" class="step-btn" data-key="hRooms" data-d="1" aria-label="زيادة الغرف"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between py-2">
+                      <div>
+                        <p class="text-sm font-bold text-slate-800" data-i18n="adults">بالغون</p>
+                        <p class="text-xs text-slate-500" data-i18n="adultsHint">12 سنة فأكثر</p>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <button type="button" class="step-btn" data-key="hAdults" data-d="-1" aria-label="تقليل البالغين"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                        <span id="hAdultsVal" class="w-6 text-center font-bold">2</span>
+                        <button type="button" class="step-btn" data-key="hAdults" data-d="1" aria-label="زيادة البالغين"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between py-2">
+                      <div>
+                        <p class="text-sm font-bold text-slate-800" data-i18n="children">أطفال</p>
+                        <p class="text-xs text-slate-500" data-i18n="hChildrenHint">0 – 17 سنة</p>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <button type="button" class="step-btn" data-key="hChildren" data-d="-1" aria-label="تقليل الأطفال"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                        <span id="hChildrenVal" class="w-6 text-center font-bold">0</span>
+                        <button type="button" class="step-btn" data-key="hChildren" data-d="1" aria-label="زيادة الأطفال"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                      </div>
+                    </div>
+
+                    <p class="mt-2 text-[11px] leading-5 text-slate-400">
+                      <i class="fa-solid fa-circle-info me-1"></i> <span data-i18n="agesNote">حدد عمر كل طفل عند تسجيل الوصول — تُحتسب أسعار بعض الفنادق حسب عمر النزلاء.</span>
+                    </p>
+
+                    <button type="button" id="rsGuestsDone" class="mt-4 w-full rounded-xl bg-brand-600 py-2.5 text-sm font-bold text-white transition hover:bg-brand-700"><span data-i18n="done">تم</span></button>
+                  </div>
+                </div>
+
+                <!-- زر البحث -->
+                <button type="submit"
+                  class="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-l from-brand-600 to-brand-500 px-8 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-brand-600/30 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-600/40 md:col-span-2 xl:col-span-1">
+                  <i class="fa-solid fa-magnifying-glass transition group-hover:scale-110"></i>
+                  <span data-i18n="btnSearchHotels">ابحث عن الفنادق</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== النتائج: فلاتر + بطاقات ===================== -->
+  <main class="mx-auto max-w-7xl px-4 py-6 lg:px-8">
+    <div class="grid items-start gap-6 lg:grid-cols-[17rem_1fr]">
+
+      <!-- خلفية درج فلاتر الجوال -->
+      <div id="fltBackdrop" class="fixed inset-0 z-30 hidden bg-slate-900/50 backdrop-blur-sm lg:hidden"></div>
+
+      <!-- ===== لوحة الفلاتر (ثابتة على سطح المكتب) ===== -->
+      <aside id="fltAside" class="hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-6 lg:z-20 lg:block">
+        <div class="mb-4 flex items-center justify-between">
+          <p class="flex items-center gap-2 text-base font-extrabold text-slate-800">
+            <i class="fa-solid fa-sliders text-brand-500"></i> <span data-i18n="filters">تصفية النتائج</span>
+          </p>
+          <button id="clearBtn" class="text-xs font-bold text-brand-600 transition hover:text-brand-800"><span data-i18n="clearFilters">مسح الكل</span></button>
+        </div>
+
+        <!-- ---------- فلاتر الطيران ---------- -->
+        <div id="fltFlights" class="space-y-6">
+          <section>
+            <h3 class="flt-title"><i class="fa-solid fa-route text-slate-400"></i> <span data-i18n="fStops">التوقفات</span></h3>
+            <label class="flt-row"><input type="radio" name="rsStops" value="any" checked class="flt-check"><span data-i18n="fAny">الكل</span></label>
+            <label class="flt-row"><input type="radio" name="rsStops" value="direct" class="flt-check"><span data-i18n="direct">مباشر</span></label>
+            <label class="flt-row"><input type="radio" name="rsStops" value="onestop" class="flt-check"><span data-i18n="oneStop">توقف واحدة</span></label>
+          </section>
+
+          <section>
+            <h3 class="flt-title"><i class="fa-solid fa-plane text-slate-400"></i> <span data-i18n="fAirlines">شركات الطيران</span></h3>
+            <div id="alsBox"></div>
+          </section>
+
+          <section>
+            <h3 class="flt-title"><i class="fa-solid fa-tag text-slate-400"></i> <span data-i18n="fPrice">السعر (للفرد)</span></h3>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="fb" data-v="p1"><span id="fbLbl1">أقل من 2,000 د.م.</span></label>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="fb" data-v="p2"><span id="fbLbl2">2,000 – 2,500 د.م.</span></label>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="fb" data-v="p3"><span id="fbLbl3">أكثر من 2,500 د.م.</span></label>
+          </section>
+
+          <section>
+            <h3 class="flt-title"><i class="fa-solid fa-clock text-slate-400"></i> <span data-i18n="fTime">وقت المغادرة</span></h3>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="win" data-v="m"><span data-i18n="tm1">قبل الظهر (حتى 12:00)</span></label>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="win" data-v="a"><span data-i18n="tm2">بعد الظهر (12:00 – 18:00)</span></label>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="win" data-v="e"><span data-i18n="tm3">مساءً (بعد 18:00)</span></label>
+          </section>
+        </div>
+
+        <!-- ---------- فلاتر الفنادق ---------- -->
+        <div id="fltHotels" class="hidden space-y-6">
+          <section>
+            <h3 class="flt-title"><i class="fa-solid fa-star text-slate-400"></i> <span data-i18n="fStars">تصنيف الفندق</span></h3>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="stars" data-v="5"><span class="tracking-widest text-amber-500">★★★★★</span><span class="sr-only" data-i18n="st5">5 نجوم</span></label>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="stars" data-v="4"><span class="tracking-widest text-amber-500">★★★★</span><span class="sr-only" data-i18n="st4">4 نجوم</span></label>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="stars" data-v="3"><span class="tracking-widest text-amber-500">★★★</span><span class="sr-only" data-i18n="st3">3 نجوم</span></label>
+          </section>
+
+          <section>
+            <h3 class="flt-title"><i class="fa-solid fa-tag text-slate-400"></i> <span data-i18n="fPriceN">السعر / الليلة</span></h3>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="hb" data-v="p1"><span id="hbLbl1">أقل من 500 د.م.</span></label>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="hb" data-v="p2"><span id="hbLbl2">500 – 1,000 د.م.</span></label>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="hb" data-v="p3"><span id="hbLbl3">أكثر من 1,000 د.م.</span></label>
+          </section>
+
+          <section>
+            <h3 class="flt-title"><i class="fa-solid fa-thumbs-up text-slate-400"></i> <span data-i18n="fRating">تقييم النزلاء</span></h3>
+            <label class="flt-row"><input type="checkbox" class="flt-check" data-f="rate8" data-v="1"><span class="inline-flex items-center gap-1.5"><span class="rounded-md bg-emerald-600 px-1.5 py-0.5 text-[10px] font-extrabold text-white">8.0+</span><span data-i18n="rateExcellent">ممتاز فأعلى</span></span></label>
+          </section>
+        </div>
+      </aside>
+
+      <!-- زر فلاتر الجوال (درج سفلي) -->
+      <button id="fltFab" class="fixed bottom-5 start-4 z-40 inline-flex items-center gap-2 rounded-full bg-brand-900 px-5 py-3 text-sm font-bold text-white shadow-2xl transition hover:bg-brand-800 lg:hidden">
+        <i class="fa-solid fa-sliders"></i> <span data-i18n="filters">تصفية النتائج</span>
+      </button>
+
+      <!-- ===== منطقة النتائج ===== -->
+      <section aria-label="نتائج البحث" class="min-w-0">
+        <!-- رأس النتائج + الترتيب -->
+        <div class="mb-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="min-w-0">
+              <h1 class="flex flex-wrap items-center gap-2 text-lg font-extrabold text-slate-900 sm:text-xl">
+                <i id="headIcon" class="fa-solid fa-plane text-brand-500"></i>
+                <span id="headTitle" data-i18n="headFlights">الرحلات المتاحة</span>
+                <span id="headCount" class="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-extrabold text-brand-700">0</span>
+              </h1>
+              <p id="headNote" class="mt-1 text-xs text-slate-500" data-i18n="taxNote">الأسعار تشمل الضرائب والرسوم — للفرد الواحد</p>
+            </div>
+            <div id="sortBox" class="flex flex-wrap items-center gap-1.5" role="group" aria-label="الترتيب"></div>
+          </div>
+        </div>
+
+        <!-- قائمة النتائج -->
+        <div id="resultsList" class="space-y-4"></div>
+
+        <!-- حالة فارغة -->
+        <div id="emptyBox" class="hidden rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center">
+          <span class="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-full bg-slate-100 text-2xl text-slate-400"><i class="fa-solid fa-magnifying-glass-minus"></i></span>
+          <h2 class="text-lg font-extrabold text-slate-800" data-i18n="emptyTitle">لا توجد نتائج مطابقة</h2>
+          <p class="mx-auto mt-2 max-w-sm text-sm leading-6 text-slate-500" data-i18n="emptyText">جرّب تعديل عوامل التصفية أو البحث بتواريخ مرنة للحصول على خيارات أكثر.</p>
+          <button id="emptyClear" class="mt-5 rounded-xl bg-brand-600 px-6 py-2.5 text-sm font-bold text-white transition hover:bg-brand-700"><span data-i18n="clearFilters">مسح الكل</span></button>
+        </div>
+      </section>
+    </div>
+
+    <!-- شريط الثقة -->
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3 pb-14 text-xs font-semibold text-slate-500 sm:text-sm">
+      <span class="glass-chip border-slate-200 bg-white text-slate-600"><i class="fa-solid fa-medal me-1.5 text-amber-500"></i> <span data-i18n="chipPrice">أفضل سعر مضمون</span></span>
+      <span class="glass-chip border-slate-200 bg-white text-slate-600"><i class="fa-solid fa-rotate-left me-1.5 text-emerald-500"></i> <span data-i18n="chipCancel">إلغاء مجاني على معظم الحجوزات</span></span>
+      <span class="glass-chip border-slate-200 bg-white text-slate-600"><i class="fa-solid fa-headset me-1.5 text-brand-500"></i> <span data-i18n="chipSupport">دعم عربي 24/7</span></span>
+    </div>
+  </main>
+
+  <!-- قوائم الاقتراحات (Autocomplete) — في الإنتاج تُجلب من API المدن والمطارات -->
+  <datalist id="airportsList">
+    <option value="الدار البيضاء (CMN)" data-i18n-val="f_cmn"></option>
+    <option value="الرباط (RBA)" data-i18n-val="f_rba"></option>
+    <option value="مراكش (RAK)" data-i18n-val="f_rak"></option>
+    <option value="طنجة (TNG)" data-i18n-val="f_tng"></option>
+    <option value="جدة (JED)" data-i18n-val="f_jed"></option>
+    <option value="الرياض (RUH)" data-i18n-val="f_ruh"></option>
+    <option value="دبي (DXB)" data-i18n-val="f_dxb"></option>
+    <option value="الدوحة (DOH)" data-i18n-val="f_doh"></option>
+    <option value="القاهرة (CAI)" data-i18n-val="f_cai"></option>
+    <option value="إسطنبول (IST)" data-i18n-val="f_ist"></option>
+    <option value="باريس (CDG)" data-i18n-val="f_cdg"></option>
+    <option value="لندن (LHR)" data-i18n-val="f_lhr"></option>
+  </datalist>
+  <datalist id="citiesList">
+    <option value="مراكش، المغرب" data-i18n-val="h_mrak"></option>
+    <option value="الدار البيضاء، المغرب" data-i18n-val="h_cmn"></option>
+    <option value="دبي، الإمارات" data-i18n-val="h_dxb"></option>
+    <option value="جدة، السعودية" data-i18n-val="h_jed"></option>
+    <option value="القاهرة، مصر" data-i18n-val="h_cai"></option>
+    <option value="إسطنبول، تركيا" data-i18n-val="h_ist"></option>
+    <option value="باريس، فرنسا" data-i18n-val="h_cdg"></option>
+  </datalist>
+
+  <!-- ===== تذييل بسيط ===== -->
+  <footer class="border-t border-slate-200 bg-white py-6">
+    <p class="mb-2 text-center text-[11px] font-bold text-slate-400" data-i18n="followUs">تابعونا على منصاتنا</p>
+    <div class="mb-3 flex items-center justify-center gap-2.5">
+      <a href="#" aria-label="Facebook" class="grid h-10 w-10 place-items-center rounded-full bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20 transition hover:bg-brand-600 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram" class="grid h-10 w-10 place-items-center rounded-full bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20 transition hover:bg-brand-600 hover:text-white"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="X" class="grid h-10 w-10 place-items-center rounded-full bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20 transition hover:bg-brand-600 hover:text-white"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="TikTok" class="grid h-10 w-10 place-items-center rounded-full bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20 transition hover:bg-brand-600 hover:text-white"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="YouTube" class="grid h-10 w-10 place-items-center rounded-full bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20 transition hover:bg-brand-600 hover:text-white"><i class="fab fa-youtube"></i></a>
+      <a href="#" aria-label="WhatsApp" class="grid h-10 w-10 place-items-center rounded-full bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20 transition hover:bg-brand-600 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p class="text-center text-xs leading-6 text-slate-500">
+      <span data-i18n="footerRes">© 2026 رحلتي — نموذج أولي لصفحة نتائج البحث (HTML + Tailwind CSS + JavaScript خالص) • ثنائية اللغة عربي/إنجليزي</span>
+      <span class="ms-2 rounded-md bg-brand-600/10 px-1.5 py-0.5 align-middle text-[10px] font-extrabold text-brand-600" title="نسخة الصفحة">v15</span>
+      <span class="mx-2 text-slate-300">|</span>
+      <a class="transition hover:text-brand-600" href="#"><span data-i18n="terms">الشروط والأحكام</span></a>
+      <span class="mx-2 text-slate-300">|</span>
+      <a class="transition hover:text-brand-600" href="#"><span data-i18n="privacy">سياسة الخصوصية</span></a>
+    </p>
+  </footer>
+
+  <!-- ===== درج التنقل (Navigation Drawer) — ينزلق من جهة البداية فوق حجاب (NameThatUI) ===== -->
+  <div id="navScrim" class="drawer-scrim fixed inset-0 z-[70] hidden bg-slate-950/60 backdrop-blur-sm lg:hidden" aria-hidden="true"></div>
+  <nav id="navDrawer" class="drawer-panel fixed inset-y-0 start-0 z-[80] flex w-80 max-w-[85vw] flex-col overflow-y-auto bg-gradient-to-b from-brand-900 via-[#123a6d] to-brand-800 shadow-2xl lg:hidden" aria-label="قائمة التصفح" tabindex="-1">
+    <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
+      <a href="flight-hotel-search-bar.html" class="flex items-center gap-2.5">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-tr from-amber-400 to-orange-500 text-white shadow-lg"><i class="fa-solid fa-plane-up text-lg" aria-hidden="true"></i></span>
+        <span class="text-2xl font-extrabold tracking-tight text-white"><span data-i18n="brand">رحلتي</span><span class="text-amber-400">.</span></span>
+      </a>
+      <button id="drawerClose" type="button" class="grid h-9 w-9 place-items-center rounded-xl border border-white/15 bg-white/10 text-white transition hover:bg-white hover:text-brand-900" aria-label="إغلاق القائمة">
+        <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
+      </button>
+    </div>
+    <ul class="flex-1 space-y-1 px-3 py-4 text-sm font-semibold text-blue-100">
+      <li><a class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-white/10 hover:text-white" href="flight-hotel-search-bar.html"><i class="fa-solid fa-house w-5 shrink-0 text-center text-amber-400" aria-hidden="true"></i><span data-i18n="navHome">الرئيسية</span></a></li>
+      <li><a class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-white/10 hover:text-white" href="flight-hotel-search-results.html"><i class="fa-solid fa-plane w-5 shrink-0 text-center text-amber-400" aria-hidden="true"></i><span data-i18n="navFlights">طيران</span></a></li>
+      <li><a class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-white/10 hover:text-white" href="flight-hotel-search-results.html?type=hotels"><i class="fa-solid fa-hotel w-5 shrink-0 text-center text-amber-400" aria-hidden="true"></i><span data-i18n="navHotels">فنادق</span></a></li>
+      <li><a class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-white/10 hover:text-white" href="#"><i class="fa-solid fa-umbrella-beach w-5 shrink-0 text-center text-amber-400" aria-hidden="true"></i><span data-i18n="navPackages">باقات سياحية</span></a></li>
+      <li><a class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-white/10 hover:text-white" href="#"><i class="fa-solid fa-tags w-5 shrink-0 text-center text-amber-400" aria-hidden="true"></i><span data-i18n="navDeals">العروض</span></a></li>
+      <li class="py-2" aria-hidden="true"><div class="h-px bg-white/10"></div></li>
+      <li><a class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-white/10 hover:text-white" href="my-trips.html"><i class="fa-solid fa-suitcase-rolling w-5 shrink-0 text-center text-amber-400" aria-hidden="true"></i><span data-i18n="navTrips">رحلتي</span></a></li>
+      <li><a class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-white/10 hover:text-white" href="sign-in.html"><i class="fa-regular fa-user w-5 shrink-0 text-center text-amber-400" aria-hidden="true"></i><span data-i18n="signin">تسجيل الدخول</span></a></li>
+    </ul>
+    <div class="border-t border-white/10 px-5 py-4 text-xs text-blue-100/80">
+      <div class="font-extrabold text-white"><span data-i18n="brand">رحلتي</span><span class="text-amber-400">.</span> <span class="ms-1 rounded-md bg-white/10 px-1.5 py-0.5 text-[10px] font-bold text-amber-300">v15</span></div>
+    </div>
+  </nav>
+  <script>
+  /* ===== درج التنقل — عقد NameThatUI =====
+     aria-expanded متزامن مع الحالة، Escape والحجاب يغلقان، قفل تمرير الصفحة أثناء الفتح،
+     إعادة التركيز إلى الزر عند الإغلاق، وحصر Tab داخل الدرج. سكربت مستقل بلا تبعيات. */
+  (function () {
+    'use strict';
+    var btn = document.getElementById('menuBtn');
+    var drawer = document.getElementById('navDrawer');
+    var scrim = document.getElementById('navScrim');
+    var closeBtn = document.getElementById('drawerClose');
+    if (!btn || !drawer || !scrim) return;
+
+    var LBL = {
+      ar: { open: 'فتح القائمة', close: 'إغلاق القائمة', panel: 'قائمة التصفح' },
+      en: { open: 'Open menu', close: 'Close menu', panel: 'Navigation menu' }
+    };
+    var isOpen = false;
+    var lastFocus = null;
+
+    function lang() {
+      return (document.documentElement.getAttribute('lang') || 'ar').slice(0, 2) === 'en' ? 'en' : 'ar';
+    }
+    function applyLabels() {
+      var l = LBL[lang()];
+      drawer.setAttribute('aria-label', l.panel);
+      btn.setAttribute('aria-label', isOpen ? l.close : l.open);
+    }
+    /* تمرير lang/cur الحاليين إلى روابط الدرج حتى لا يفقد المستخدم لغته/عملته */
+    function syncLinkParams() {
+      var q = new URLSearchParams(window.location.search);
+      var lg = q.get('lang'), cu = q.get('cur');
+      drawer.querySelectorAll('a[href]').forEach(function (a) {
+        var h = a.getAttribute('href') || '';
+        if (!h || h.charAt(0) === '#' || h.indexOf('.html') < 0) return;
+        var cut = h.indexOf('?');
+        var base = cut < 0 ? h : h.slice(0, cut);
+        var p = new URLSearchParams(cut < 0 ? '' : h.slice(cut + 1));
+        if (lg) p.set('lang', lg);
+        if (cu) p.set('cur', cu);
+        var s = p.toString();
+        a.setAttribute('href', base + (s ? '?' + s : ''));
+      });
+    }
+    function openDrawer() {
+      if (isOpen) return;
+      isOpen = true;
+      lastFocus = document.activeElement;
+      scrim.classList.remove('hidden');
+      window.requestAnimationFrame(function () { scrim.classList.add('drawer-scrim-show'); });
+      drawer.classList.add('drawer-open');
+      document.body.style.overflow = 'hidden'; /* قفل تمرير الصفحة */
+      btn.setAttribute('aria-expanded', 'true'); /* مزامنة aria */
+      applyLabels();
+      try { drawer.focus(); } catch (e) { /* تجاهل */ }
+    }
+    function closeDrawer() {
+      if (!isOpen) return;
+      isOpen = false;
+      drawer.classList.remove('drawer-open');
+      scrim.classList.remove('drawer-scrim-show');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+      applyLabels();
+      window.setTimeout(function () { if (!isOpen) scrim.classList.add('hidden'); }, 320);
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus(); /* إعادة التركيز للزر */
+    }
+
+    btn.addEventListener('click', function () { isOpen ? closeDrawer() : openDrawer(); });
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    scrim.addEventListener('click', closeDrawer);
+    /* حصر Tab داخل الدرج أثناء الفتح */
+    drawer.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab' || !isOpen) return;
+      var f = drawer.querySelectorAll('a[href], button');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    /* Escape يغلق الدرج */
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'Escape' || e.key === 'Esc') && isOpen) { e.preventDefault(); closeDrawer(); }
+    });
+    /* اختيار رابط يغلق الدرج */
+    drawer.querySelectorAll('a[href]').forEach(function (a) {
+      a.addEventListener('click', function () { closeDrawer(); });
+    });
+
+    applyLabels();
+    syncLinkParams();
+    /* مزامنة التسميات عند تبديل اللغة، والروابط عند تبديل اللغة/العملة */
+    new MutationObserver(function () { applyLabels(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['dir', 'lang'] });
+    document.addEventListener('change', function (e) {
+      if (e.target && (e.target.id === 'langSelect' || e.target.id === 'curSelect')) window.setTimeout(syncLinkParams, 0);
+    });
+  })();
+  </script>
+
+  <!-- رسالة توست -->
+  <div class="pointer-events-none fixed inset-x-0 bottom-6 z-50 flex justify-center" aria-live="polite">
+    <div id="toastBox" class="hidden rounded-full bg-slate-900/90 px-5 py-2.5 text-sm font-semibold text-white shadow-2xl backdrop-blur"></div>
+  </div>
+
+  <script>
+    /* ============================================================
+       منطق صفحة النتائج — JavaScript خالص بدون أي مكتبات خارجية
+       في الإنتاج: تُجلب FLIGHTS/HOTELS من API الخلفية بنفس معايير URL
+       ============================================================ */
+    const $  = (s, c = document) => c.querySelector(s);
+    const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+    /* ---------- أدوات مساعدة ---------- */
+    const pad = n => String(n).padStart(2, '0');
+    const fmtDate = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+    const parseDate = s => { const [y, m, dd] = s.split('-').map(Number); return new Date(y, m - 1, dd); };
+
+    /* ---------- الترجمة (i18n): عربي / إنجليزي ---------- */
+    let LANG = 'ar';
+    const t = k => (I18N[LANG] && I18N[LANG][k]) ?? I18N.ar[k] ?? k;
+
+    const I18N = {
+      ar: {
+        apiSynced: 'تمت مزامنة الحجز مع سيرفر رحلتي', apiSyncFail: 'تعذر الوصول إلى السيرفر — بقي الحفظ محلياً', apiServerResults: 'نتائج مباشرة من سيرفر رحلتي',
+      navTrips: 'رحلتي',
+        title: 'رحلتي | نتائج البحث — طيران وفنادق', brand: 'رحلتي',
+        navHome: 'الرئيسية', navFlights: 'طيران', navHotels: 'فنادق', navPackages: 'باقات سياحية', navDeals: 'العروض', badgeNew: 'جديد', signin: 'تسجيل الدخول',
+        editSearch: 'تعديل البحث', hideSearch: 'إخفاء لوحة البحث',
+        tabFlights: 'طيران', tabHotels: 'فنادق',
+        tripRound: 'ذهاب وعودة', tripOne: 'ذهاب فقط',
+        from: 'من', to: 'إلى', depDate: 'تاريخ المغادرة', retDate: 'تاريخ العودة', paxClass: 'المسافرون والدرجة', phAirport: 'مدينة أو مطار',
+        adults: 'بالغون', adultsHint: '12 سنة فأكثر', children: 'أطفال', childrenHint: '2 – 11 سنة', infants: 'رُضّع', infantsHint: 'أقل من سنتين — بدون مقعد',
+        classTitle: 'درجة السفر', clsEco: 'اقتصادية', clsBiz: 'رجال الأعمال', clsFirst: 'الأولى', done: 'تم',
+        btnSearchFlights: 'ابحث عن الرحلات', btnSearchHotels: 'ابحث عن الفنادق',
+        dest: 'الوجهة / اسم الفندق', phDest: 'مدينة أو منطقة أو فندق', checkin: 'تاريخ الوصول', checkout: 'تاريخ المغادرة', roomsGuests: 'الغرف والنزلاء',
+        rooms: 'الغرف', roomsHint: '1 – 6 غرف', hChildrenHint: '0 – 17 سنة',
+        agesNote: 'حدد عمر كل طفل عند تسجيل الوصول — تُحتسب أسعار بعض الفنادق حسب عمر النزلاء.',
+        /* فلاتر الطيران */
+        filters: 'تصفية النتائج', clearFilters: 'مسح الكل', fStops: 'التوقفات', fAny: 'الكل', direct: 'مباشر', oneStop: 'توقف واحدة',
+        fAirlines: 'شركات الطيران', fPrice: 'السعر (للفرد)', fUnder: 'أقل من', fOver: 'أكثر من',
+        fTime: 'وقت المغادرة', tm1: 'قبل الظهر (حتى 12:00)', tm2: 'بعد الظهر (12:00 – 18:00)', tm3: 'مساءً (بعد 18:00)',
+        /* فلاتر الفنادق */
+        fStars: 'تصنيف الفندق', st3: '3 نجوم', st4: '4 نجوم', st5: '5 نجوم', fPriceN: 'السعر / الليلة',
+        fRating: 'تقييم النزلاء', rateExcellent: 'ممتاز فأعلى',
+        /* رأس النتائج */
+        headFlights: 'الرحلات المتاحة', headHotels: 'الفنادق المتاحة', resultsWord: 'نتيجة',
+        taxNote: 'الأسعار تشمل الضرائب والرسوم — للفرد الواحد', nightsNote: 'الأسعار لليالية الأولى وتشمل الضرائب',
+        legOut: 'ذهاب', sortBest: 'الأفضل', sortCheapest: 'الأرخص', sortFastest: 'الأسرع',
+        sortRec: 'الموصى بها', sortPriceAsc: 'الأقل سعراً', sortRating: 'الأعلى تقييماً',
+        /* بطاقة الرحلة */
+        selectBtn: 'اختيار', bagChip: 'حقيبة', bagUnit: 'كجم', layover: 'انتظار', viaIn: 'في',
+        bgCheapest: 'الأرخص', bgFastest: 'الأسرع', h: 'س', m: 'د',
+        /* بطاقة الفندق */
+        bookNow: 'احجز الآن', viewDetails: 'عرض التفاصيل', perNight: '/ الليلة', totalFor: 'الإجمالي لـ', nightsW: 'ليالٍ', nightW: 'ليلة',
+        headBundle: 'باقات طيران + فندق', pkgNote: 'الأسعار لكل مسافر وتشمل الطيران والإقامة', tagBest: 'الأكثر طلباً', perTraveller: '/ للمسافر', pkgTravellersW: 'مسافرين',
+        i_flight: 'رحلة طيران ذهاب وعودة', i_hotel: 'إقامة في فندق مختار', i_breakfast: 'فطور مجاني', i_tour: 'جولة مدينة', i_safari: 'سفاري صحراوي', i_transfer: 'نقل من المطار', followUs: 'تابعونا على منصاتنا',
+        freeCancel: 'إلغاء مجاني', payLater: 'الدفع عند الوصول',
+        a_wifi: 'واي فاي مجاني', a_breakfast: 'إفطار مجاني', a_pool: 'مسبح', a_beach: 'شاطئ خاص', a_parking: 'موقف مجاني', a_spa: 'سبا',
+        rw_excellent: 'ممتاز', rw_vgood: 'رائع', rw_good: 'جيد جداً', rw_reviews: 'تقييم النزلاء',
+        /* حالة فارغة وتوست */
+        emptyTitle: 'لا توجد نتائج مطابقة', emptyText: 'جرّب تعديل عوامل التصفية أو البحث بتواريخ مرنة للحصول على خيارات أكثر.',
+        tSelect: 'تم اختيار الرحلة — هذه نسخة تجريبية للواجهة', tBook: 'تم اختيار الفندق — هذه نسخة تجريبية للواجهة',
+        tApplied: 'تم تحديث نتائج البحث', tCleared: 'تم مسح عوامل التصفية', tDestSet: 'تم تحديث وجهة البحث',
+        /* التذييل */
+        footerRes: '© 2026 رحلتي — نموذج أولي لصفحة نتائج البحث (HTML + Tailwind CSS + JavaScript خالص) • ثنائية اللغة عربي/إنجليزي',
+        terms: 'الشروط والأحكام', privacy: 'سياسة الخصوصية',
+        chipPrice: 'أفضل سعر مضمون', chipCancel: 'إلغاء مجاني على معظم الحجوزات', chipSupport: 'دعم عربي 24/7',
+        /* مدن ومطارات (نفس قوائم صفحة البحث) */
+        city_cmn: 'الدار البيضاء', city_dxb: 'دبي', city_jed: 'جدة', city_cai: 'القاهرة', city_ist: 'إسطنبول', city_cdg: 'باريس',
+        f_cmn: 'الدار البيضاء (CMN)', f_rba: 'الرباط (RBA)', f_rak: 'مراكش (RAK)', f_tng: 'طنجة (TNG)', f_jed: 'جدة (JED)', f_ruh: 'الرياض (RUH)', f_dxb: 'دبي (DXB)', f_doh: 'الدوحة (DOH)', f_cai: 'القاهرة (CAI)', f_ist: 'إسطنبول (IST)', f_cdg: 'باريس (CDG)', f_lhr: 'لندن (LHR)',
+        h_mrak: 'مراكش، المغرب', h_cmn: 'الدار البيضاء، المغرب', h_dxb: 'دبي، الإمارات', h_jed: 'جدة، السعودية', h_cai: 'القاهرة، مصر', h_ist: 'إسطنبول، تركيا', h_cdg: 'باريس، فرنسا',
+        wTraveller1: 'مسافر واحد', wTraveller2: 'مسافران', wTravellers: 'مسافرين', wInfant: 'رضيع',
+        wRoom: 'غرفة', wRooms: 'غرف', wGuest1: 'ضيف واحد', wGuest2: 'ضيفان', wGuests: 'ضيوف'
+      },
+      en: {
+        apiSynced: 'Booking synced with the Rehlati server', apiSyncFail: 'Server unreachable — saved locally', apiServerResults: 'Live results from the Rehlati server',
+      navTrips: 'My trips',
+        title: 'Rehlati | Search Results — Flights & Hotels', brand: 'Rehlati',
+        navHome: 'Home', navFlights: 'Flights', navHotels: 'Hotels', navPackages: 'Holiday Packages', navDeals: 'Deals', badgeNew: 'New', signin: 'Sign in',
+        editSearch: 'Modify search', hideSearch: 'Hide search panel',
+        tabFlights: 'Flights', tabHotels: 'Hotels',
+        tripRound: 'Round trip', tripOne: 'One way',
+        from: 'From', to: 'To', depDate: 'Departure date', retDate: 'Return date', paxClass: 'Travellers & class', phAirport: 'City or airport',
+        adults: 'Adults', adultsHint: 'Aged 12+', children: 'Children', childrenHint: 'Aged 2–11', infants: 'Infants', infantsHint: 'Under 2 — no seat',
+        classTitle: 'Travel class', clsEco: 'Economy', clsBiz: 'Business', clsFirst: 'First', done: 'Done',
+        btnSearchFlights: 'Search flights', btnSearchHotels: 'Search hotels',
+        dest: 'Destination / hotel name', phDest: 'City, area or hotel', checkin: 'Check-in date', checkout: 'Check-out date', roomsGuests: 'Rooms & guests',
+        rooms: 'Rooms', roomsHint: '1–6 rooms', hChildrenHint: 'Aged 0–17',
+        agesNote: "Tell us each child's age at check-in — some hotels price by guest age.",
+        filters: 'Filters', clearFilters: 'Clear all', fStops: 'Stops', fAny: 'Any', direct: 'Direct', oneStop: '1 stop',
+        fAirlines: 'Airlines', fPrice: 'Price (per traveller)', fUnder: 'Under', fOver: 'Over',
+        fTime: 'Departure time', tm1: 'Morning (before 12:00)', tm2: 'Afternoon (12:00 – 18:00)', tm3: 'Evening (after 18:00)',
+        fStars: 'Hotel rating', st3: '3-star', st4: '4-star', st5: '5-star', fPriceN: 'Price / night',
+        fRating: 'Guest score', rateExcellent: 'Excellent & up',
+        headFlights: 'Available flights', headHotels: 'Available hotels', resultsWord: 'results',
+        taxNote: 'Prices include taxes & fees — per traveller', nightsNote: 'Prices shown for the first night, taxes included',
+        legOut: 'Outbound', sortBest: 'Best', sortCheapest: 'Cheapest', sortFastest: 'Fastest',
+        sortRec: 'Recommended', sortPriceAsc: 'Lowest price', sortRating: 'Top rated',
+        selectBtn: 'Select', bagChip: 'Bag', bagUnit: 'kg', layover: 'layover', viaIn: 'in',
+        bgCheapest: 'Cheapest', bgFastest: 'Fastest', h: 'h', m: 'm',
+        bookNow: 'Book now', viewDetails: 'View details', perNight: '/ night', totalFor: 'Total for', nightsW: 'nights', nightW: 'night',
+        headBundle: 'Flight + Hotel packages', pkgNote: 'Per-traveller prices include flights and accommodation', tagBest: 'Bestseller', perTraveller: '/ traveller', pkgTravellersW: 'travellers',
+        i_flight: 'Return flight', i_hotel: 'Handpicked hotel stay', i_breakfast: 'Free breakfast', i_tour: 'City tour', i_safari: 'Desert safari', i_transfer: 'Airport transfer', followUs: 'Follow us',
+        freeCancel: 'Free cancellation', payLater: 'Pay at hotel',
+        a_wifi: 'Free Wi-Fi', a_breakfast: 'Breakfast included', a_pool: 'Swimming pool', a_beach: 'Private beach', a_parking: 'Free parking', a_spa: 'Spa',
+        rw_excellent: 'Excellent', rw_vgood: 'Superb', rw_good: 'Very good', rw_reviews: 'Guest reviews',
+        emptyTitle: 'No matching results', emptyText: 'Try adjusting your filters or searching with flexible dates for more options.',
+        tSelect: 'Flight selected — this is a UI demo', tBook: 'Hotel selected — this is a UI demo',
+        tApplied: 'Search results updated', tCleared: 'Filters cleared', tDestSet: 'Search destination updated',
+        footerRes: '© 2026 Rehlati — Search results page prototype (HTML + Tailwind CSS + vanilla JS) • Bilingual Arabic/English',
+        terms: 'Terms & Conditions', privacy: 'Privacy Policy',
+        chipPrice: 'Best price guaranteed', chipCancel: 'Free cancellation on most bookings', chipSupport: '24/7 support',
+        city_cmn: 'Casablanca', city_dxb: 'Dubai', city_jed: 'Jeddah', city_cai: 'Cairo', city_ist: 'Istanbul', city_cdg: 'Paris',
+        f_cmn: 'Casablanca (CMN)', f_rba: 'Rabat (RBA)', f_rak: 'Marrakesh (RAK)', f_tng: 'Tangier (TNG)', f_jed: 'Jeddah (JED)', f_ruh: 'Riyadh (RUH)', f_dxb: 'Dubai (DXB)', f_doh: 'Doha (DOH)', f_cai: 'Cairo (CAI)', f_ist: 'Istanbul (IST)', f_cdg: 'Paris (CDG)', f_lhr: 'London (LHR)',
+        h_mrak: 'Marrakesh, Morocco', h_cmn: 'Casablanca, Morocco', h_dxb: 'Dubai, UAE', h_jed: 'Jeddah, Saudi Arabia', h_cai: 'Cairo, Egypt', h_ist: 'Istanbul, Türkiye', h_cdg: 'Paris, France',
+        wTraveller1: '1 traveller', wTraveller2: '2 travellers', wTravellers: 'travellers', wInfant: 'infant',
+        wRoom: 'room', wRooms: 'rooms', wGuest1: '1 guest', wGuest2: '2 guests', wGuests: 'guests'
+      }
+    };
+
+    /* أسماء الأشهر وأيام الأسبوع بتنسيق بشري */
+    const MONTHS = {
+      ar: ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],
+      en: ['January','February','March','April','May','June','July','August','September','October','November','December']
+    };
+    const WDAY = {
+      ar: ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],
+      en: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    };
+
+    /* ---------- حالات عامة ---------- */
+    const today = new Date();
+    const codeOf = s => (String(s).match(/\(([A-Z]{3})\)/) || [])[1] || '';
+    const clampInt = (v, mn, mx, df) => { const n = parseInt(v, 10); return Number.isFinite(n) ? Math.min(mx, Math.max(mn, n)) : df; };
+
+    const S = {
+      type: 'flights', trip: 'round', sort: 'best',
+      fromDisp: '', toDisp: '', depCode: '', arrCode: '', d1: '', d2: null,
+      destDisp: '', ci: '', co: '',
+      fk: 'cmn', tk: 'dxb', dk: 'dxb',
+      fAdults: 2, fChildren: 0, fInfants: 0, fCls: 'clsEco',
+      hRooms: 1, hAdults: 2, hChildren: 0
+    };
+
+    /* عوامل التصفية (القيم الفارغة تعني "الكل") */
+    const FLT = {
+      stops: 'any',
+      als: { EK: true, QR: true, SV: true, AT: true, FR: true, VY: true },
+      fb: { p1: false, p2: false, p3: false },
+      win: { m: false, a: false, e: false },
+      stars: { 3: true, 4: true, 5: true },
+      hb: { p1: false, p2: false, p3: false },
+      rate8: false
+    };
+
+    /* ---------- بيانات تجريبية (في الإنتاج تأتي من API البحث) ---------- */
+    const FLIGHTS = [
+      { id: 'sv5522', al: 'SV', no: 'SV 5522', dep: '08:15', arr: '19:40', dur: 685, stops: 1, via: 'JED', lay: 145, plus: false, price: 1690, bag: 25, craft: 'Airbus A321neo',   sc: 4 },
+      { id: 'ek751',  al: 'EK', no: 'EK 751',  dep: '09:10', arr: '18:55', dur: 585, stops: 0, via: null, lay: 0,   plus: false, price: 2450, bag: 30, craft: 'Boeing 777-300ER', sc: 1 },
+      { id: 'qr1397', al: 'QR', no: 'QR 1397', dep: '02:20', arr: '12:05', dur: 585, stops: 1, via: 'DOH', lay: 80,  plus: false, price: 1980, bag: 25, craft: 'Airbus A350-900',  sc: 2 },
+      { id: 'ek753',  al: 'EK', no: 'EK 753',  dep: '14:50', arr: '00:30', dur: 580, stops: 0, via: null, lay: 0,   plus: true,  price: 2780, bag: 30, craft: 'Boeing 777-300ER', sc: 3 },
+      { id: 'sv5516', al: 'SV', no: 'SV 5516', dep: '23:55', arr: '14:20', dur: 865, stops: 1, via: 'JED', lay: 125, plus: true,  price: 1760, bag: 25, craft: 'Boeing 787-9',     sc: 6 },
+      { id: 'qr1399', al: 'QR', no: 'QR 1399', dep: '10:40', arr: '21:30', dur: 650, stops: 1, via: 'DOH', lay: 55,  plus: false, price: 2150, bag: 25, craft: 'Boeing 787-8',     sc: 5 },
+      { id: 'at411',  al: 'AT', no: 'AT 411',  dep: '07:45', arr: '20:10', dur: 745, stops: 1, via: 'CAI', lay: 95,  plus: false, price: 2240, bag: 25, craft: 'Boeing 787-8',     sc: 7 },
+      { id: 'fr8244', al: 'FR', no: 'FR 8244', dep: '06:10', arr: '17:35', dur: 685, stops: 1, via: 'MAD', lay: 120, plus: false, price: 1420, bag: 20, craft: 'Boeing 737-800',   sc: 8 },
+      { id: 'vy6308', al: 'VY', no: 'VY 6308', dep: '12:50', arr: '23:20', dur: 630, stops: 1, via: 'BCN', lay: 95,  plus: false, price: 1890, bag: 20, craft: 'Airbus A320neo',   sc: 9 }
+    ];
+    const AIRLINES = {
+      EK: { ar: 'طيران الإمارات',  en: 'Emirates',        c: 'bg-red-600' },
+      QR: { ar: 'الخطوط القطرية',  en: 'Qatar Airways',   c: 'bg-[#5c0632]' },
+      SV: { ar: 'الخطوط السعودية', en: 'Saudia',          c: 'bg-emerald-700' },
+      AT: { ar: 'الخطوط الملكية المغربية', en: 'Royal Air Maroc', c: 'bg-[#c8102e]' },
+      FR: { ar: 'ريان إير',        en: 'Ryanair',         c: 'bg-[#073590]' },
+      VY: { ar: 'فويلينغ',         en: 'Vueling',         c: 'bg-[#ffcd00]', tc: 'text-slate-900' }
+    };
+    const VIA = {
+      JED: { ar: 'جدة', en: 'Jeddah' }, DOH: { ar: 'الدوحة', en: 'Doha' },
+      CAI: { ar: 'القاهرة', en: 'Cairo' }, MAD: { ar: 'مدريد', en: 'Madrid' }, BCN: { ar: 'برشلونة', en: 'Barcelona' }
+    };
+
+    const HOTELS = [
+      { id: 'atl', stars: 5, name: { ar: 'أتلانتس ذا بالم',       en: 'Atlantis The Palm' },    area: { ar: 'شاطئ جميرا',        en: 'Palm Jumeirah' },      dist: { ar: 'على الشاطئ',  en: 'Beachfront' },    rating: 9.4, price: 2850, am: ['wifi', 'breakfast', 'pool', 'beach', 'parking'], g: 'from-cyan-600 to-blue-800',    sc: 1 },
+      { id: 'raf', stars: 5, name: { ar: 'رافلز دبي',             en: 'Raffles Dubai' },        area: { ar: 'وسط دبي',           en: 'Downtown Dubai' },     dist: { ar: 'قرب المترو',  en: 'Near metro' },    rating: 9.2, price: 1980, am: ['wifi', 'breakfast', 'pool', 'spa'],              g: 'from-amber-500 to-orange-700', sc: 2 },
+      { id: 'ghy', stars: 5, name: { ar: 'جراند حياة دبي',        en: 'Grand Hyatt Dubai' },    area: { ar: 'ديرة',              en: 'Deira' },              dist: { ar: 'قرب المترو',  en: 'Near metro' },    rating: 8.8, price: 890,  am: ['wifi', 'breakfast', 'pool', 'parking'],          g: 'from-emerald-600 to-teal-800', sc: 3 },
+      { id: 'crp', stars: 4, name: { ar: 'كراون بلازا دبي',       en: 'Crowne Plaza Dubai' },   area: { ar: 'طريق الشيخ زايد',   en: 'Sheikh Zayed Rd' },    dist: { ar: 'وسط المدينة', en: 'City centre' },   rating: 8.5, price: 620,  am: ['wifi', 'breakfast', 'parking'],                  g: 'from-violet-600 to-purple-800', sc: 4 },
+      { id: 'rdb', stars: 4, name: { ar: 'راديسون بلو دبي',       en: 'Radisson Blu Dubai' },   area: { ar: 'دييرا سيتي سنتر',   en: 'Deira City Centre' },  dist: { ar: 'قرب المترو',  en: 'Near metro' },    rating: 8.3, price: 540,  am: ['wifi', 'pool'],                                  g: 'from-rose-500 to-red-700',     sc: 5 },
+      { id: 'ibi', stars: 3, name: { ar: 'إبيس دبي ألب جادراف',   en: 'ibis Dubai Al Jaddaf' }, area: { ar: 'ألب جادراف',        en: 'Al Jaddaf' },          dist: { ar: 'قرب المترو',  en: 'Near metro' },    rating: 8.1, price: 245,  am: ['wifi'],                                          g: 'from-slate-600 to-slate-800',  sc: 6 }
+    ];
+    const AMEN_ICONS = { wifi: 'fa-wifi', breakfast: 'fa-mug-saucer', pool: 'fa-water-ladder', beach: 'fa-umbrella-beach', parking: 'fa-square-parking', spa: 'fa-spa' };
+
+    const SORTS = {
+      flights: [['best', 'sortBest'], ['cheapest', 'sortCheapest'], ['fastest', 'sortFastest']],
+      hotels:  [['rec', 'sortRec'], ['priceAsc', 'sortPriceAsc'], ['rating', 'sortRating']]
+    };
+
+    /* ---------- العملات: MAD أساس + تحويل فوري (EUR/USD/SAR/AED/EGP) ----------
+       في الإنتاج: تأتي الأسعار من الـ API بعملة العرض أو يُستعمل جدول أسعار لحظي */
+    const CUR_KEY = 'rehlati_cur';
+    let CUR = 'MAD';
+    const CURRENCIES = {
+      MAD: { rate: 1,         sym: { ar: 'د.م.', en: 'MAD' }, pos: 'end' },
+      EUR: { rate: 1 / 10.85, sym: '€', pos: 'start' },
+      USD: { rate: 1 / 9.9,   sym: '$', pos: 'start' },
+      SAR: { rate: 1 / 2.65,  sym: { ar: 'ر.س', en: 'SAR' }, pos: 'end' },
+      AED: { rate: 1 / 2.71,  sym: { ar: 'د.إ', en: 'AED' }, pos: 'end' },
+      EGP: { rate: 4.9,       sym: { ar: 'ج.م', en: 'EGP' }, pos: 'end' }
+    };
+
+    /* ---------- تنسيقات ---------- */
+    const fmtPrice = n => {
+      const c = CURRENCIES[CUR] || CURRENCIES.MAD;
+      const num = Math.round(n * c.rate).toLocaleString('en-US');
+      const sym = typeof c.sym === 'string' ? c.sym : c.sym[LANG];
+      return c.pos === 'start' ? `${sym}${num}` : `${num} ${sym}`;
+    };
+    const fmtDur = min => { const h = Math.floor(min / 60), m = min % 60; return `${h}${t('h')}${m ? ` ${m}${t('m')}` : ''}`; };
+    const fmtHuman = s => { const d = parseDate(s); const sep = LANG === 'ar' ? '،' : ','; return `${WDAY[LANG][d.getDay()]}${sep} ${d.getDate()} ${MONTHS[LANG][d.getMonth()]}`; };
+    const getNights = () => Math.max(1, Math.round((parseDate(S.co) - parseDate(S.ci)) / 864e5));
+
+    /* ---------- توست ---------- */
+    let toastTimer;
+    function toast(msg) {
+      const box = $('#toastBox');
+      box.textContent = msg;
+      box.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => box.classList.add('hidden'), 2600);
+    }
+
+    /* ---------- الفلترة والترتيب ---------- */
+    function filteredFlights() {
+      const pOn = Object.entries(FLT.fb).filter(([, v]) => v).map(([k]) => k);
+      const wOn = Object.entries(FLT.win).filter(([, v]) => v).map(([k]) => k);
+      return FLIGHTS.filter(f => {
+        if (FLT.stops === 'direct' && f.stops !== 0) return false;
+        if (FLT.stops === 'onestop' && f.stops !== 1) return false;
+        if (!FLT.als[f.al]) return false;
+        if (pOn.length && !pOn.includes(f.price < 2000 ? 'p1' : f.price <= 2500 ? 'p2' : 'p3')) return false;
+        if (wOn.length) { const hr = parseInt(f.dep, 10); if (!wOn.includes(hr < 12 ? 'm' : hr < 18 ? 'a' : 'e')) return false; }
+        return true;
+      }).sort((a, b) =>
+        S.sort === 'cheapest' ? a.price - b.price :
+        S.sort === 'fastest'  ? a.dur - b.dur   : a.sc - b.sc);
+    }
+
+    function filteredHotels() {
+      const pOn = Object.entries(FLT.hb).filter(([, v]) => v).map(([k]) => k);
+      return HOTELS.filter(h => {
+        if (!FLT.stars[h.stars]) return false;
+        if (pOn.length && !pOn.includes(h.price < 500 ? 'p1' : h.price <= 1000 ? 'p2' : 'p3')) return false;
+        if (FLT.rate8 && h.rating < 8) return false;
+        return true;
+      }).sort((a, b) =>
+        S.sort === 'priceAsc' ? a.price - b.price :
+        S.sort === 'rating'   ? b.rating - a.rating : a.sc - b.sc);
+    }
+
+    /* ---------- قوالب البطاقات ---------- */
+    function flightCard(f, cheapId, fastId) {
+      const A = AIRLINES[f.al];
+      const badges = [];
+      if (f.id === cheapId) badges.push(['bg-amber-100 text-amber-700', t('bgCheapest')]);
+      if (f.id === fastId)  badges.push(['bg-cyan-100 text-cyan-700', t('bgFastest')]);
+      const badgeHtml = badges.map(([c, x]) => `<span class="rounded-full ${c} px-2 py-0.5 text-[10px] font-extrabold">${x}</span>`).join('');
+      const depCode = S.depCode ? `<p class="text-[11px] font-bold text-slate-400">${S.depCode}</p>` : '';
+      const arrPlus = f.plus ? ' <span class="rounded bg-slate-100 px-1 text-[10px] font-extrabold text-slate-500">+1</span>' : '';
+      const arrCode = S.arrCode ? `<p class="text-[11px] font-bold text-slate-400">${S.arrCode}${arrPlus}</p>` : (f.plus ? `<p class="text-[11px] font-bold text-slate-400">+1</p>` : '');
+      const stopLine = f.stops === 0
+        ? `<span class="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-extrabold text-emerald-600">${t('direct')}</span>`
+        : `<span class="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-extrabold text-amber-600">${t('oneStop')} ${t('viaIn')} ${VIA[f.via][LANG]} (${f.via})</span>
+           <span class="text-[10px] font-bold text-slate-400">${t('layover')} ${fmtDur(f.lay)}</span>`;
+      return `
+      <article class="anim-rise group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-brand-300 hover:shadow-card sm:p-5" style="animation-delay:${f.ix * 40}ms">
+        <div class="grid items-center gap-4 lg:grid-cols-[170px_1fr_185px]">
+          <div class="flex items-center gap-3 lg:block">
+            <span class="al-badge ${A.c} ${A.tc || 'text-white'}">${f.al}</span>
+            <div class="min-w-0 lg:mt-2">
+              <p class="truncate text-sm font-extrabold text-slate-800">${A[LANG]}</p>
+              <p class="text-[11px] font-semibold text-slate-400">${f.no} • ${f.craft}</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-[auto_1fr_auto] items-center gap-2 sm:gap-4">
+            <div class="text-center">
+              <p class="text-xl font-extrabold text-slate-900">${f.dep}</p>
+              ${depCode}
+            </div>
+            <div class="min-w-0 px-1 text-center">
+              <p class="mb-1 flex flex-wrap items-center justify-center gap-1.5 text-[11px] font-bold text-slate-500">${badgeHtml}<span>${fmtDur(f.dur)}</span></p>
+              <div class="relative h-px bg-slate-200">
+                <i class="fa-solid fa-plane absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-1.5 text-xs text-brand-500 rtl:-scale-x-100"></i>
+              </div>
+              <p class="mt-1 flex flex-wrap items-center justify-center gap-1.5">${stopLine}</p>
+            </div>
+            <div class="text-center">
+              <p class="text-xl font-extrabold text-slate-900">${f.arr}</p>
+              ${arrCode}
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-3 border-t border-slate-100 pt-3 lg:flex-col lg:items-end lg:justify-center lg:border-s lg:border-t-0 lg:ps-5 lg:pt-0">
+            <div class="lg:text-end">
+              <p class="text-xl font-extrabold text-brand-800">${fmtPrice(f.price)}</p>
+              <p class="text-[11px] font-semibold text-slate-400"><i class="fa-solid fa-suitcase-rolling me-1"></i>${t('bagChip')} ${f.bag} ${t('bagUnit')}</p>
+            </div>
+            <button type="button" data-cho="${f.id}" class="rounded-xl bg-brand-600 px-7 py-2.5 text-sm font-extrabold text-white shadow-lg shadow-brand-600/25 transition hover:bg-brand-700">${t('selectBtn')}</button>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function hotelCard(h) {
+      const starsHtml = `<span class="tracking-widest text-amber-500">${'★'.repeat(h.stars)}</span>`;
+      const rw = h.rating >= 9 ? t('rw_excellent') : h.rating >= 8.5 ? t('rw_vgood') : t('rw_good');
+      const nights = getNights();
+      const amHtml = h.am.map(k =>
+        `<span class="inline-flex items-center gap-1 rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600"><i class="fa-solid ${AMEN_ICONS[k]} text-brand-500"></i>${t('a_' + k)}</span>`).join('');
+      return `
+      <article class="anim-rise group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-brand-300 hover:shadow-card" style="animation-delay:${h.ix * 40}ms">
+        <div class="grid sm:grid-cols-[230px_1fr] lg:grid-cols-[230px_1fr_230px]">
+          <div class="relative flex h-40 items-center justify-center bg-gradient-to-br ${h.g} sm:h-full sm:min-h-[11rem]">
+            <i class="fa-solid fa-hotel text-5xl text-white/80"></i>
+            <span class="absolute bottom-3 start-3 max-w-[80%] truncate rounded-full bg-white/90 px-3 py-1 text-[10px] font-extrabold text-slate-700">${esc(S.destDisp)}</span>
+          </div>
+          <div class="min-w-0 p-4 sm:p-5">
+            <div class="flex items-center gap-1.5">${starsHtml}<span class="text-[11px] font-bold text-slate-400">${t('st' + h.stars)}</span></div>
+            <h3 class="mt-1 text-lg font-extrabold text-slate-900 transition group-hover:text-brand-700">${h.name[LANG]}</h3>
+            <p class="mt-1 flex flex-wrap items-center gap-1.5 text-xs font-semibold text-slate-500">
+              <i class="fa-solid fa-location-dot text-brand-500"></i> ${h.area[LANG]}
+              <span class="rounded-full bg-brand-50 px-2 py-0.5 text-[10px] font-extrabold text-brand-700">${h.dist[LANG]}</span>
+            </p>
+            <div class="mt-3 flex flex-wrap gap-1.5">${amHtml}</div>
+            <p class="mt-3 text-xs font-bold text-emerald-600"><i class="fa-solid fa-circle-check me-1"></i>${t('freeCancel')}</p>
+          </div>
+          <div class="flex items-center justify-between gap-3 border-t border-slate-100 p-4 sm:p-5 lg:flex-col lg:items-end lg:justify-center lg:border-s lg:border-t-0 lg:ps-5">
+            <div class="flex items-center gap-2">
+              <span class="grid h-10 w-12 place-items-center rounded-xl rounded-bl-sm bg-brand-800 text-sm font-extrabold text-white">${h.rating.toFixed(1)}</span>
+              <div class="leading-tight lg:text-end">
+                <p class="text-xs font-extrabold text-slate-800">${rw}</p>
+                <p class="text-[10px] font-semibold text-slate-400">${t('rw_reviews')}</p>
+              </div>
+            </div>
+            <div class="lg:text-end">
+              <p class="text-xl font-extrabold text-brand-800">${fmtPrice(h.price)} <span class="text-[11px] font-bold text-slate-400">${t('perNight')}</span></p>
+              <p class="text-[11px] font-bold text-slate-500">${t('totalFor')} ${nights} ${nights === 1 ? t('nightW') : t('nightsW')} • ${fmtPrice(h.price * nights)}</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" data-det="${h.id}" class="rounded-xl border border-slate-200 px-4 py-2.5 text-xs font-bold text-slate-500 transition hover:border-brand-400 hover:text-brand-600">${t('viewDetails')}</button>
+              <button type="button" data-book="${h.id}" class="rounded-xl bg-brand-600 px-6 py-2.5 text-sm font-extrabold text-white shadow-lg shadow-brand-600/25 transition hover:bg-brand-700">${t('bookNow')}</button>
+            </div>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    /* ---------- الباقات (طيران + فندق) ---------- */
+    const PKGS = [
+      { id: 'pk3', dest: { ar: 'دبي، الإمارات', en: 'Dubai, UAE' }, title: { ar: 'دبي — فخامة الخليج', en: 'Dubai — Gulf Luxury' }, nights: 3, hotel: { ar: 'فندق بالم جراند ديلوكس', en: 'Palm Grand Deluxe' }, price: 7250, g: 'from-amber-400 to-orange-500', inc: ['flight', 'hotel', 'breakfast', 'safari'], tag: true },
+      { id: 'pk2', dest: { ar: 'إسطنبول، تركيا', en: 'Istanbul, Türkiye' }, title: { ar: 'إسطنبول — عبر قارتين', en: 'Istanbul — Two Continents' }, nights: 5, hotel: { ar: 'فندق تاج البوسفور', en: 'Bosphorus Crown Hotel' }, price: 5480, g: 'from-cyan-500 to-blue-600', inc: ['flight', 'hotel', 'breakfast', 'tour'] },
+      { id: 'pk1', dest: { ar: 'مراكش، المغرب', en: 'Marrakesh, Morocco' }, title: { ar: 'مراكش — سحر المدينة الحمراء', en: 'Marrakesh — Red City Magic' }, nights: 4, hotel: { ar: 'رياض باليه بلان', en: 'Riad Palais Blanc' }, price: 3950, g: 'from-orange-400 to-rose-500', inc: ['flight', 'hotel', 'breakfast', 'transfer'] }
+    ];
+    const INC_ICONS = { flight: 'fa-plane', hotel: 'fa-hotel', breakfast: 'fa-mug-saucer', tour: 'fa-map-location-dot', safari: 'fa-person-hiking', transfer: 'fa-shuttle-van' };
+
+    function pkgCard(p) {
+      const incHtml = p.inc.map(k =>
+        `<span class="inline-flex items-center gap-1 rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600"><i class="fa-solid ${INC_ICONS[k]} text-brand-500"></i>${t('i_' + k)}</span>`).join('');
+      const px = S.px || 2;
+      return `
+      <article class="anim-rise group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-brand-300 hover:shadow-card">
+        <div class="grid sm:grid-cols-[230px_1fr] lg:grid-cols-[230px_1fr_230px]">
+          <div class="relative flex h-40 items-center justify-center bg-gradient-to-br ${p.g} sm:h-full sm:min-h-[11rem]">
+            <i class="fa-solid fa-suitcase-rolling text-5xl text-white/80"></i>
+            <span class="absolute bottom-3 start-3 max-w-[80%] truncate rounded-full bg-white/90 px-3 py-1 text-[10px] font-extrabold text-slate-700">${p.dest[LANG]}</span>
+            ${p.tag ? `<span class="absolute top-3 end-3 rounded-full bg-amber-400 px-2.5 py-0.5 text-[10px] font-extrabold text-brand-900 shadow">${t('tagBest')}</span>` : ''}
+          </div>
+          <div class="min-w-0 p-4 sm:p-5">
+            <h3 class="text-lg font-extrabold text-slate-900 transition group-hover:text-brand-700">${p.title[LANG]}</h3>
+            <p class="mt-1 flex flex-wrap items-center gap-1.5 text-xs font-semibold text-slate-500">
+              <i class="fa-solid fa-location-dot text-brand-500"></i> ${p.dest[LANG]}
+              <span class="rounded-full bg-brand-50 px-2 py-0.5 text-[10px] font-extrabold text-brand-700">${p.nights} ${t('nightsW')}</span>
+            </p>
+            <p class="mt-2 flex items-center gap-1.5 text-xs font-bold text-slate-700"><i class="fa-solid fa-hotel text-brand-500"></i>${p.hotel[LANG]}</p>
+            <div class="mt-3 flex flex-wrap gap-1.5">${incHtml}</div>
+            <p class="mt-3 text-xs font-bold text-emerald-600"><i class="fa-solid fa-circle-check me-1"></i>${t('freeCancel')}</p>
+          </div>
+          <div class="flex items-center justify-between gap-3 border-t border-slate-100 p-4 sm:p-5 lg:flex-col lg:items-end lg:justify-center lg:border-s lg:border-t-0 lg:ps-5">
+            <div class="lg:text-end">
+              <p class="text-xl font-extrabold text-brand-800">${fmtPrice(p.price)} <span class="text-[11px] font-bold text-slate-400">${t('perTraveller')}</span></p>
+              <p class="text-[11px] font-bold text-slate-500">${px} ${t('pkgTravellersW')} • ${fmtPrice(p.price * px)}</p>
+            </div>
+            <button type="button" data-pkg="${p.id}" class="rounded-xl bg-brand-600 px-6 py-2.5 text-sm font-extrabold text-white shadow-lg shadow-brand-600/25 transition hover:bg-brand-700">${t('bookNow')}</button>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    /* ---------- العرض ---------- */
+    function renderList() {
+      if (S.type === 'bundle') {
+        $('#headCount').textContent = `${PKGS.length} ${t('resultsWord')}`;
+        $('#resultsList').innerHTML = PKGS.map(p => pkgCard(p)).join('');
+        $('#emptyBox').classList.add('hidden');
+        return;
+      }
+      const flights = S.type === 'flights';
+      const list = flights ? filteredFlights() : filteredHotels();
+      list.forEach((x, i) => { x.ix = i; });
+      const cheapId = flights && list.length > 1 ? [...list].sort((a, b) => a.price - b.price)[0].id : null;
+      const fastId  = flights && list.length > 1 ? [...list].sort((a, b) => a.dur - b.dur)[0].id : null;
+      $('#headCount').textContent = `${list.length} ${t('resultsWord')}`;
+      $('#resultsList').innerHTML = list.map(h => flights ? flightCard(h, cheapId, fastId) : hotelCard(h)).join('');
+      $('#emptyBox').classList.toggle('hidden', list.length > 0);
+    }
+
+    function renderHead() {
+      if (S.type === 'bundle') {
+        $('#headIcon').className = 'fa-solid fa-suitcase text-brand-500';
+        $('#headTitle').dataset.i18n = 'headBundle'; $('#headTitle').textContent = t('headBundle');
+        $('#headNote').dataset.i18n = 'pkgNote'; $('#headNote').textContent = t('pkgNote');
+        return;
+      }
+      const flights = S.type === 'flights';
+      $('#headIcon').className = `fa-solid ${flights ? 'fa-plane' : 'fa-hotel'} text-brand-500`;
+      const tt = flights ? 'headFlights' : 'headHotels';
+      $('#headTitle').dataset.i18n = tt; $('#headTitle').textContent = t(tt);
+      const nt = flights ? 'taxNote' : 'nightsNote';
+      $('#headNote').dataset.i18n = nt; $('#headNote').textContent = t(nt);
+    }
+
+    function renderSortBox() {
+      if (!SORTS[S.type]) { $('#sortBox').innerHTML = ''; return; }
+      $('#sortBox').innerHTML = SORTS[S.type].map(([k, lbl]) =>
+        `<button type="button" data-sort="${k}" class="sort-pill ${S.sort === k ? SORT_ON : SORT_OFF}">${t(lbl)}</button>`).join('');
+      $$('#sortBox [data-sort]').forEach(b => b.addEventListener('click', () => {
+        S.sort = b.dataset.sort;
+        renderSortBox(); renderList();
+      }));
+    }
+
+    function renderAirlines() {
+      $('#alsBox').innerHTML = Object.keys(AIRLINES).map(code => `
+        <label class="flt-row">
+          <input type="checkbox" class="flt-check" data-f="als" data-v="${code}" ${FLT.als[code] ? 'checked' : ''}>
+          <span class="al-badge ${AIRLINES[code].c} ${AIRLINES[code].tc || 'text-white'} !h-7 !w-7 !text-[9px]">${code}</span>
+          <span class="truncate">${AIRLINES[code][LANG]}</span>
+        </label>`).join('');
+    }
+
+    /* ---------- شرائح نطاقات الأسعار (تتبع العملة المختارة) ---------- */
+    function renderPriceBuckets() {
+      $('#fbLbl1').textContent = `${t('fUnder')} ${fmtPrice(2000)}`;
+      $('#fbLbl2').textContent = `${fmtPrice(2000)} – ${fmtPrice(2500)}`;
+      $('#fbLbl3').textContent = `${t('fOver')} ${fmtPrice(2500)}`;
+      $('#hbLbl1').textContent = `${t('fUnder')} ${fmtPrice(500)}`;
+      $('#hbLbl2').textContent = `${fmtPrice(500)} – ${fmtPrice(1000)}`;
+      $('#hbLbl3').textContent = `${t('fOver')} ${fmtPrice(1000)}`;
+    }
+
+    /* ---------- تبديل العملة ---------- */
+    function setCur(c) {
+      CUR = CURRENCIES[c] ? c : 'MAD';
+      $('#curSelect').value = CUR;
+      try { localStorage.setItem(CUR_KEY, CUR); } catch (e) {}
+      renderPriceBuckets(); renderList();
+    }
+    $('#curSelect').addEventListener('change', e => setCur(e.target.value));
+
+    /* [رحلتي sec] تعقيم النصوص القادمة من URL قبل حقنها في innerHTML (ضد XSS) */
+    function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+    function renderSummary() {
+      const flights = S.type === 'flights';
+      $('#sumIcon').innerHTML = `<i class="fa-solid ${flights ? 'fa-plane-up' : 'fa-hotel'} text-lg"></i>`;
+      $('#sumRoute').innerHTML = flights
+        ? `${esc(S.fromDisp)} <i class="fa-solid fa-plane mx-1 text-sm text-amber-400"></i> ${esc(S.toDisp)}`
+        : `${esc(S.destDisp)}`; /* [رحلتي sec] */
+      $('#sumTrip').classList.toggle('hidden', !flights);
+      if (flights) $('#sumTrip').textContent = S.trip === 'round' ? t('tripRound') : t('tripOne');
+      $('#sumDates').innerHTML = `<i class="fa-solid fa-calendar-days"></i> ${flights
+        ? (S.d2 ? `${fmtHuman(S.d1)} — ${fmtHuman(S.d2)}` : `${fmtHuman(S.d1)} (${t('tripOne')})`)
+        : `${fmtHuman(S.ci)} <i class="fa-solid fa-arrow-right-long mx-0.5 rtl:-scale-x-100"></i> ${fmtHuman(S.co)}`}`;
+      const total = S.fAdults + S.fChildren;
+      let trav = total === 1 ? t('wTraveller1') : total === 2 ? t('wTraveller2') : `${total} ${t('wTravellers')}`;
+      if (flights && S.fInfants) trav += ` + ${S.fInfants} ${t('wInfant')}`;
+      $('#sumPax').innerHTML = `<i class="fa-solid fa-user-group"></i> ${flights
+        ? `${trav} • ${t(S.fCls)}`
+        : `${S.hRooms} ${S.hRooms === 1 ? t('wRoom') : t('wRooms')} • ${S.hAdults + S.hChildren} ${t('wGuests')}`}`;
+      /* مزامنة حقول لوحة التعديل مع الحالة */
+      $('#rsFrom').value = S.fromDisp; $('#rsTo').value = S.toDisp; $('#rsDest').value = S.destDisp;
+      $('#rsDep').value = S.d1;
+      if (S.d2) $('#rsRet').value = S.d2;
+      $('#rsCin').value = S.ci; $('#rsCout').value = S.co;
+    }
+
+    /* ---------- تبديل اللغة ---------- */
+    function retranslateCities() {
+      [['rsFrom', 'f_', 'fk', 'fromDisp'], ['rsTo', 'f_', 'tk', 'toDisp'], ['rsDest', 'h_', 'dk', 'destDisp']].forEach(([id, pre, keyField, dispField]) => {
+        const key = pre + S[keyField];
+        const known = Object.keys(I18N).map(l => I18N[l][key]).filter(Boolean);
+        if (known.includes(S[dispField])) S[dispField] = t(key);
+        const el = $('#' + id);
+        if (el && known.includes(el.value)) el.value = S[dispField];
+      });
+    }
+
+    function setLang(lang) {
+      LANG = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.title = t('title');
+      $('#langSelect').value = lang;
+      $$('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+      $$('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+      $$('[data-i18n-val]').forEach(el => { el.value = t(el.dataset.i18nVal); });
+      retranslateCities();
+      applyBundleUI();
+      renderAirlines(); renderHead(); renderSortBox(); renderPriceBuckets(); renderList(); renderSummary();
+      updateSummaries();
+    }
+    $('#langSelect').addEventListener('change', e => setLang(e.target.value));
+
+    /* ---------- القوائم المنسدلة (مسافرون / نزلاء) ---------- */
+    function closePanels() {
+      $('#rsPaxPanel').classList.add('hidden');
+      $('#rsGuestsPanel').classList.add('hidden');
+      $('#rsPaxBtn').setAttribute('aria-expanded', 'false');
+      $('#rsGuestsBtn').setAttribute('aria-expanded', 'false');
+      $('#rsPaxChevron').classList.remove('rotate-180');
+      $('#rsGuestsChevron').classList.remove('rotate-180');
+    }
+    function togglePanel(panel, btn, chev) {
+      const willOpen = panel.classList.contains('hidden');
+      closePanels();
+      if (willOpen) {
+        panel.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        chev.classList.add('rotate-180');
+      }
+    }
+    $('#rsPaxBtn').addEventListener('click', e => togglePanel($('#rsPaxPanel'), e.currentTarget, $('#rsPaxChevron')));
+    $('#rsGuestsBtn').addEventListener('click', e => togglePanel($('#rsGuestsPanel'), e.currentTarget, $('#rsGuestsChevron')));
+    $('#rsPaxDone').addEventListener('click', closePanels);
+    $('#rsGuestsDone').addEventListener('click', closePanels);
+    document.addEventListener('click', e => {
+      if (!e.target.closest('#rsPaxWrap') && !e.target.closest('#rsGuestsWrap')) closePanels();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanels(); });
+
+    /* ---------- لوحة تعديل البحث ---------- */
+    function closeEditPanel() {
+      $('#editPanel').classList.add('hidden');
+      $('#editBtn').setAttribute('aria-expanded', 'false');
+      $('#editChevron').classList.remove('rotate-180');
+      $('#editLabel').dataset.i18n = 'editSearch';
+      $('#editLabel').textContent = t('editSearch');
+    }
+    $('#editBtn').addEventListener('click', () => {
+      const nowHidden = $('#editPanel').classList.toggle('hidden');
+      const open = !nowHidden;
+      $('#editBtn').setAttribute('aria-expanded', String(open));
+      $('#editChevron').classList.toggle('rotate-180', open);
+      $('#editLabel').dataset.i18n = open ? 'hideSearch' : 'editSearch';
+      $('#editLabel').textContent = t($('#editLabel').dataset.i18n);
+    });
+
+    /* ---------- التبويبات ---------- */
+    const TAB_ON  = ['bg-white', 'text-brand-800', 'shadow'];
+    const TAB_OFF = ['text-slate-500', 'hover:text-slate-700'];
+
+    /* حبّات الترتيب */
+    const SORT_ON  = 'bg-brand-600 text-white shadow-sm';
+    const SORT_OFF = 'bg-slate-100 text-slate-500 hover:bg-slate-200';
+
+    function switchTab(which) {
+      const flights = which === 'flights';
+      S.type = which;
+      /* الباقات (bundle) بلا حبّات ترتيب — نحافظ على الترتيب الافتراضي بدل الانهيار */
+      S.sort = SORTS[which] ? SORTS[which][0][0] : S.sort;
+      $('#rsFlightForm').classList.toggle('hidden', !flights);
+      $('#rsHotelForm').classList.toggle('hidden', flights);
+      $('#fltFlights').classList.toggle('hidden', !flights);
+      $('#fltHotels').classList.toggle('hidden', flights);
+      [$('#tabFlights'), $('#tabHotels')].forEach((b, i) => {
+        const on = (i === 0) === flights;
+        b.classList.remove(...TAB_ON, ...TAB_OFF);
+        b.classList.add(...(on ? TAB_ON : TAB_OFF));
+        b.setAttribute('aria-selected', on);
+      });
+      closePanels();
+      renderHead(); renderSortBox(); renderList(); renderSummary();
+    }
+    $('#tabFlights').addEventListener('click', () => switchTab('flights'));
+    $('#tabHotels').addEventListener('click', () => switchTab('hotels'));
+    $('#navFlights').addEventListener('click', e => { e.preventDefault(); switchTab('flights'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    $('#navHotels').addEventListener('click', e => { e.preventDefault(); switchTab('hotels'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    /* ---------- نوع الرحلة ودرجة السفر ---------- */
+    const TRIP_ON  = ['bg-brand-600', 'text-white', 'shadow-sm'];
+    const TRIP_OFF = ['bg-slate-100', 'text-slate-600', 'hover:bg-slate-200'];
+    const CLS_ON   = ['border-brand-600', 'bg-brand-50', 'text-brand-700'];
+    const CLS_OFF  = ['border-slate-200', 'text-slate-500', 'hover:border-slate-300'];
+
+    function applyTripVisual() {
+      $$('.rs-trip-btn').forEach(b => {
+        const on = b.dataset.trip === S.trip;
+        b.classList.remove(...TRIP_ON, ...TRIP_OFF);
+        b.classList.add(...(on ? TRIP_ON : TRIP_OFF));
+      });
+      $('#rsRetWrap').classList.toggle('hidden', S.trip !== 'round');
+    }
+    $$('.rs-trip-btn').forEach(btn => btn.addEventListener('click', () => {
+      S.trip = btn.dataset.trip;
+      applyTripVisual(); renderSummary();
+    }));
+
+    function applyClsVisual() {
+      $$('.rs-cls-btn').forEach(b => {
+        const on = b.dataset.v === S.fCls;
+        b.classList.remove(...CLS_ON, ...CLS_OFF);
+        b.classList.add(...(on ? CLS_ON : CLS_OFF));
+      });
+    }
+    $$('.rs-cls-btn').forEach(b => b.addEventListener('click', () => {
+      S.fCls = b.dataset.v;
+      applyClsVisual(); updateSummaries(); renderSummary();
+    }));
+
+    /* ---------- عدّادات المسافرين والغرف ---------- */
+    const CONF = {
+      fAdults:   { min: 1, max: 9 },
+      fChildren: { min: 0, max: 6 },
+      fInfants:  { min: 0, max: 4 },
+      hRooms:    { min: 1, max: 6 },
+      hAdults:   { min: 1, max: 14 },
+      hChildren: { min: 0, max: 6 }
+    };
+
+    function refreshSteppers() {
+      $$('.step-btn').forEach(b => {
+        const c = CONF[b.dataset.key], next = S[b.dataset.key] + (+b.dataset.d);
+        const max = b.dataset.key === 'fInfants' ? Math.min(c.max, S.fAdults) : c.max;
+        b.disabled = next < c.min || next > max;
+      });
+    }
+
+    function updateSummaries() {
+      S.fInfants = Math.min(S.fInfants, S.fAdults);
+      const total = S.fAdults + S.fChildren;
+      let trav = total === 1 ? t('wTraveller1') : total === 2 ? t('wTraveller2') : `${total} ${t('wTravellers')}`;
+      if (S.fInfants) trav += ` + ${S.fInfants} ${t('wInfant')}`;
+      $('#rsPaxSummary').textContent = `${trav} • ${t(S.fCls)}`;
+      const g = S.hAdults + S.hChildren;
+      const gw = g === 1 ? t('wGuest1') : g === 2 ? t('wGuest2') : `${g} ${t('wGuests')}`;
+      $('#rsGuestsSummary').textContent = `${S.hRooms} ${S.hRooms === 1 ? t('wRoom') : t('wRooms')} • ${gw}`;
+      refreshSteppers();
+    }
+
+    $$('.step-btn').forEach(b => b.addEventListener('click', () => {
+      const c = CONF[b.dataset.key], d = +b.dataset.d, v = S[b.dataset.key] + d;
+      if (v < c.min || v > c.max) return;
+      S[b.dataset.key] = v;
+      updateSummaries(); renderSummary();
+    }));
+
+    /* ---------- زر التبديل والتواريخ ---------- */
+    $('#rsSwapBtn').addEventListener('click', () => {
+      const f = $('#rsFrom'), to = $('#rsTo');
+      [f.value, to.value] = [to.value, f.value];
+      $('#rsSwapBtn').classList.toggle('spin');
+    });
+
+    ['#rsDep', '#rsRet', '#rsCin', '#rsCout'].forEach(id => { $(id).min = fmtDate(today); });
+    $('#rsDep').addEventListener('change', () => {
+      S.d1 = $('#rsDep').value;
+      $('#rsRet').min = S.d1;
+      if ($('#rsRet').value && $('#rsRet').value < S.d1) $('#rsRet').value = '';
+    });
+    $('#rsRet').addEventListener('change', () => { S.d2 = $('#rsRet').value || null; });
+    $('#rsCin').addEventListener('change', () => {
+      S.ci = $('#rsCin').value;
+      $('#rsCout').min = S.ci;
+      if ($('#rsCout').value && $('#rsCout').value < S.ci) $('#rsCout').value = '';
+    });
+    $('#rsCout').addEventListener('change', () => { S.co = $('#rsCout').value || S.ci; });
+
+    /* ---------- الفلاتر ---------- */
+    $('#fltAside').addEventListener('change', e => {
+      const el = e.target;
+      if (el.name === 'rsStops') { FLT.stops = el.value; }
+      else if (el.dataset.f) {
+        const g = el.dataset.f, v = el.dataset.v;
+        if (g === 'als') FLT.als[v] = el.checked;
+        else if (g === 'fb') FLT.fb[v] = el.checked;
+        else if (g === 'win') FLT.win[v] = el.checked;
+        else if (g === 'stars') FLT.stars[v] = el.checked;
+        else if (g === 'hb') FLT.hb[v] = el.checked;
+        else if (g === 'rate8') FLT.rate8 = el.checked;
+      } else return;
+      renderList();
+    });
+
+    function clearFilters() {
+      FLT.stops = 'any';
+      Object.keys(FLT.als).forEach(k => { FLT.als[k] = true; });
+      ['fb', 'win', 'hb'].forEach(g => Object.keys(FLT[g]).forEach(k => { FLT[g][k] = false; }));
+      Object.keys(FLT.stars).forEach(k => { FLT.stars[k] = true; });
+      FLT.rate8 = false;
+      $$('#fltAside input[name="rsStops"]').forEach(r => { r.checked = r.value === 'any'; });
+      $$('#fltAside input[data-f]').forEach(c => { c.checked = c.dataset.f === 'stars'; });
+      renderAirlines(); renderList();
+      toast(t('tCleared'));
+    }
+    $('#clearBtn').addEventListener('click', clearFilters);
+    $('#emptyClear').addEventListener('click', clearFilters);
+
+    /* ---------- درج فلاتر الجوال ---------- */
+    const MOB_SHEET = ['fixed', 'inset-x-3', 'bottom-16', 'z-40', 'max-h-[70vh]', 'overflow-y-auto', 'shadow-2xl'];
+    $('#fltFab').addEventListener('click', () => {
+      const a = $('#fltAside');
+      a.classList.remove('hidden');
+      a.classList.add(...MOB_SHEET);
+      $('#fltBackdrop').classList.remove('hidden');
+    });
+    function closeFltSheet() {
+      const a = $('#fltAside');
+      a.classList.add('hidden');
+      a.classList.remove(...MOB_SHEET);
+      $('#fltBackdrop').classList.add('hidden');
+    }
+    $('#fltBackdrop').addEventListener('click', closeFltSheet);
+
+    /* ---------- قائمة الجوال ---------- */
+
+    /* ---------- أزرار البطاقات (اختيار/حجز) ---------- */
+    /* إخفاء الفلاتر في وضع الباقات (لا فلاتر خاصة بها في النموذج الأولي) */
+    function applyBundleUI() {
+      const b = S.type === 'bundle';
+      const aside = $('#fltAside'), fab = $('#fltFab');
+      if (aside) aside.style.display = b ? 'none' : '';
+      if (fab) fab.style.display = b ? 'none' : '';
+    }
+
+    $('#resultsList').addEventListener('click', e => {
+      const det = e.target.closest('[data-det]');
+      if (det) { toast(t('tBook')); return; }
+      const cho = e.target.closest('[data-cho]');
+      if (cho) {
+        const f = FLIGHTS.find(x => x.id === cho.dataset.cho);
+        if (!f) { toast(t('tSelect')); return; }
+        const q = new URLSearchParams({
+          lang: LANG, cur: CUR, fl: f.id, trip: S.trip, fk: S.fk, tk: S.tk,
+          f: S.fromDisp, to: S.toDisp, d1: S.d1, d2: S.d2 || '',
+          ad: S.fAdults, ch: S.fChildren, inf: S.fInfants, cls: S.fCls
+        }).toString();
+        console.log('%c[رحلتي v15] الانتقال إلى حجز الطيران — ' + f.no, 'color:#fff;background:#2563eb;padding:2px 8px;border-radius:6px;font-weight:bold');
+        location.href = 'flight-booking.html?' + q;
+        return;
+      }
+      const book = e.target.closest('[data-book]');
+      if (book) {
+        const h = HOTELS.find(x => x.id === book.dataset.book);
+        if (!h) { toast(t('tBook')); return; }
+        const q = new URLSearchParams({
+          lang: LANG, cur: CUR, id: h.id, dk: S.dk, dest: S.destDisp || h.name.ar,
+          ci: S.ci, co: S.co, rm: S.hRooms, ad: S.hAdults, ch: S.hChildren
+        }).toString();
+        console.log('%c[رحلتي v15] الانتقال إلى حجز الفندق — ' + h.name[LANG], 'color:#fff;background:#2563eb;padding:2px 8px;border-radius:6px;font-weight:bold');
+        location.href = 'hotel-booking.html?' + q;
+        return;
+      }
+      const pk = e.target.closest('[data-pkg]');
+      if (pk) {
+        const p = PKGS.find(x => x.id === pk.dataset.pkg);
+        if (!p) return;
+        const q = new URLSearchParams({
+          lang: LANG, cur: CUR, id: p.id, dest: p.dest[LANG],
+          d1: S.d1, d2: S.d2 || '', px: S.px || 2
+        }).toString();
+        console.log('%c[رحلتي v15] الانتقال إلى حجز الباقة — ' + p.id, 'color:#fff;background:#2563eb;padding:2px 8px;border-radius:6px;font-weight:bold');
+        location.href = 'package-booking.html?' + q;
+      }
+    });
+
+    /* ---------- معالجة الإرسال (نقطة الربط مع الـ API) ---------- */
+    $('#rsFlightForm').addEventListener('submit', e => {
+      e.preventDefault();
+      S.fromDisp = $('#rsFrom').value.trim() || S.fromDisp;
+      S.toDisp = $('#rsTo').value.trim() || S.toDisp;
+      S.depCode = codeOf(S.fromDisp);
+      S.arrCode = codeOf(S.toDisp);
+      S.d1 = $('#rsDep').value || S.d1;
+      if (S.trip === 'round') S.d2 = $('#rsRet').value || S.d2;
+      /* [v1.5] حدّث مفاتيح المطارات ثم أعد البحث الحقيقي عبر الـ API بالمطارات الجديدة */
+      S.fk = (codeOf(S.fromDisp) || S.fk).toLowerCase();
+      S.tk = (codeOf(S.toDisp) || S.tk).toLowerCase();
+      (function () {
+        function __w(cb, n) { if (window.RehlatiAPI) cb(window.RehlatiAPI); else if (n > 0) setTimeout(function () { __w(cb, n - 1); }, 60); }
+        __w(function (api) {
+          api.ready.then(function (s) {
+            if (!s.available) return;
+            api.searchFlights({ from: (S.fk || 'cmn').toUpperCase(), to: (S.tk || 'dxb').toUpperCase(), date: S.d1, pax: (S.fAdults || 2) + (S.fChildren || 0), cls: S.fCls })
+              .then(function (r) {
+                if (!r || !r.ok || !Array.isArray(r.offers) || !r.offers.length) return;
+                FLIGHTS.splice.apply(FLIGHTS, [0, FLIGHTS.length].concat(r.offers));
+                renderAirlines(); renderHead(); renderSortBox(); renderPriceBuckets(); renderList(); renderSummary();
+                toast(t('apiServerResults'));
+              }).catch(function () {});
+          }).catch(function () {});
+        }, 100);
+      })();
+      console.log('Flight search →', {
+        trip: S.trip, from: S.fromDisp, to: S.toDisp, d1: S.d1, d2: S.d2,
+        pax: { adults: S.fAdults, children: S.fChildren, infants: S.fInfants, cls: S.fCls }
+      });
+      /* في الإنتاج:
+         const qs = new URLSearchParams(...).toString();
+         location.href = `/flights/search?${qs}`;   */
+      closePanels(); closeEditPanel();
+      renderSummary(); renderList();
+      toast(t('tApplied'));
+    });
+
+    $('#rsHotelForm').addEventListener('submit', e => {
+      e.preventDefault();
+      S.destDisp = $('#rsDest').value.trim() || S.destDisp;
+      S.ci = $('#rsCin').value || S.ci;
+      S.co = $('#rsCout').value || S.ci;
+      if (parseDate(S.co) < parseDate(S.ci)) S.co = fmtDate(addDays(parseDate(S.ci), 1));
+      console.log('Hotel search →', {
+        dest: S.destDisp, ci: S.ci, co: S.co, nights: getNights(),
+        guests: { rooms: S.hRooms, adults: S.hAdults, children: S.hChildren }
+      });
+      closePanels(); closeEditPanel();
+      renderSummary(); renderList();
+      toast(t('tApplied'));
+    });
+
+    /* ---------- قراءة معايير البحث من URL ---------- */
+    const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+    function initFromURL() {
+      const Q = new URLSearchParams(location.search);
+      if (Q.get('type') === 'hotels' || Q.get('type') === 'bundle') S.type = Q.get('type');
+      S.px = Math.min(9, Math.max(1, parseInt(Q.get('px'), 10) || 2));
+      const lang = Q.get('lang');
+      if (lang === 'en' || lang === 'ar') LANG = lang;
+
+      /* طيران */
+      if (Q.get('trip') === 'one' || Q.get('trip') === 'round') S.trip = Q.get('trip');
+      if (Q.get('fk')) S.fk = Q.get('fk');
+      if (Q.get('tk')) S.tk = Q.get('tk');
+      /* [v1.5+] النص الذي كتبه المستخدم له الأولوية — المفتاح المعروف للعرض فقط
+         إصلاح: نص حر بلا رمز (مثل «باريس») كان يظهر الدار البيضاء */
+      S.fromDisp = Q.get('f') || (I18N[LANG]['f_' + S.fk] ? t('f_' + S.fk) : t('f_cmn'));
+      S.toDisp = Q.get('to') || (I18N[LANG]['f_' + S.tk] ? t('f_' + S.tk) : t('f_dxb'));
+      S.depCode = codeOf(S.fromDisp);
+      S.arrCode = codeOf(S.toDisp);
+      S.d1 = DATE_RE.test(Q.get('d1') || '') ? Q.get('d1') : fmtDate(addDays(today, 10));
+      S.d2 = S.trip === 'round'
+        ? (DATE_RE.test(Q.get('d2') || '') ? Q.get('d2') : fmtDate(addDays(today, 17)))
+        : null;
+      S.fAdults = clampInt(Q.get('ad'), 1, 9, 2);
+      S.fChildren = clampInt(Q.get('ch'), 0, 6, 0);
+      S.fInfants = clampInt(Q.get('inf'), 0, 4, 0);
+      if (['clsEco', 'clsBiz', 'clsFirst'].includes(Q.get('cls'))) S.fCls = Q.get('cls');
+
+      /* فنادق */
+      if (Q.get('dk')) S.dk = Q.get('dk');
+      S.destDisp = Q.get('dest') || (I18N[LANG]['h_' + S.dk] ? t('h_' + S.dk) : t('h_dxb'));
+      S.ci = DATE_RE.test(Q.get('ci') || '') ? Q.get('ci') : fmtDate(addDays(today, 10));
+      S.co = DATE_RE.test(Q.get('co') || '') ? Q.get('co') : fmtDate(addDays(today, 14));
+      if (parseDate(S.co) < parseDate(S.ci)) S.co = fmtDate(addDays(parseDate(S.ci), 1));
+      S.hRooms = clampInt(Q.get('rm'), 1, 6, 1);
+      S.hAdults = clampInt(Q.get('ad'), 1, 14, 2);
+      S.hChildren = clampInt(Q.get('ch'), 0, 6, 0);
+
+      /* العملة: من URL ثم التخزين المحلي ثم MAD */
+      let c = Q.get('cur');
+      if (!CURRENCIES[c]) { try { c = localStorage.getItem(CUR_KEY); } catch (e) {} }
+      CUR = CURRENCIES[c] ? c : 'MAD';
+      $('#curSelect').value = CUR;
+    }
+
+    /* ---------- التهيئة الأولى ---------- */
+    initFromURL();
+    applyTripVisual();
+    applyClsVisual();
+    switchTab(S.type);
+    setLang(LANG);
+
+    /* [v16-API] ترطيب النتائج من سيرفر رحلتي إن توفر — الاحتياطي يبقى المحلي */
+    (function () {
+      function __waitAPI(cb, n) { if (window.RehlatiAPI) cb(window.RehlatiAPI); else if (n > 0) setTimeout(function () { __waitAPI(cb, n - 1); }, 60); }
+      __waitAPI(function (api) {
+        api.ready.then(function (s) {
+          if (!s.available) return;
+        var Q = new URLSearchParams(location.search);
+        var p = null;
+        if (S.type === 'hotels') {
+          p = api.searchHotels({ city: Q.get('dk') || 'DXB', ci: S.ci, co: S.co, guests: S.hAdults || 2, rooms: S.hRooms || 1 });
+        } else if (S.type === 'bundle') {
+          p = api.searchPackages({ pax: S.px || 2, nights: 5 });
+        } else {
+          /* [v1.5+] رمز المطار يُستخرج من النص المعروض أولاً ثم من المفتاح */
+          var __fc = (String(S.depCode || '').toUpperCase() || String(Q.get('fk') || '').toUpperCase() || 'CMN');
+          var __tc = (String(S.arrCode || '').toUpperCase() || String(Q.get('tk') || '').toUpperCase() || 'DXB');
+          p = api.searchFlights({ from: __fc, to: __tc, date: S.d1, pax: (S.fAdults || 2) + (S.fChildren || 0), cls: S.fCls });
+        }
+        p.then(function (r) {
+          if (!r || !r.ok || !Array.isArray(r.offers) || !r.offers.length) return;
+          if (S.type === 'hotels') {
+            HOTELS.splice.apply(HOTELS, [0, HOTELS.length].concat(r.offers));
+          } else if (S.type === 'bundle') {
+            PKGS.splice.apply(PKGS, [0, PKGS.length].concat(r.offers));
+          } else {
+            FLIGHTS.splice.apply(FLIGHTS, [0, FLIGHTS.length].concat(r.offers));
+          }
+          renderAirlines(); renderHead(); renderSortBox(); renderPriceBuckets(); renderList(); renderSummary();
+          toast(t('apiServerResults'));
+        }).catch(function () {});
+        });
+      }, 100);
+    })();
+  </script>
+</body>
+</html>
